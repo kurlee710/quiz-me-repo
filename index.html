@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Me Repo</title>
+    <link rel="stylesheet" href="assets/">
+
 </head>
 <body>
-   <h1>Hello world !!!</h1>
-   <div class="form-container">
+   <header>
+<div class = "header"></div>
+<h1>WELCOME TO QUIZ ME APP </h1>
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+</div>
+</header>
+<main>
+    <div class="form-container">
         <h2>Please enter your name and email</h2>
         <form method="post">
             <input type="text" name="name" id="name" placeholder="Name">
@@ -16,7 +30,26 @@
         </form>
         <br>
         <button id="start-quiz">Start Quiz</button>
-   </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Featured
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+      </div>
+      
+</main>
    <script src="./assets/script.js"></script>
+
+   <footer>
+    <div class="footer">
+        <p>&copy; 2024 Quiz Me App. All rights reserved.</p>
+        <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+    </div>
+</footer>
 </body>
 </html>

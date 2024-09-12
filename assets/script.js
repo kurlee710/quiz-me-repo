@@ -1,8 +1,13 @@
+// DEPENDENCIES ------------------------------------------------------------
 // start quiz button to kick off quiz function
 const startBtn = document.getElementById("start-quiz");
 const timerEl = document.querySelector(".timer");
-let timeLeft = 30;
 
+// DATA -------------------------------------------------------------------
+let timeLeft = 30;
+let userScore = 0;
+
+// FUNCTIONS --------------------------------------------------------------
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;
@@ -14,21 +19,30 @@ function startTimer() {
   }, 1000);
 }
 
-// function startQuiz() {
+function renderQuestion(question) {
+    console.log(question.question)
+    // create build place
+}
+
+
+// USER INTERACTIONS ------------------------------------------------------
+// function to startQuiz
 startBtn.addEventListener("click", function () {
   console.log("start quiz button clicked");
   startTimer();
-  renderQuestion();
+  renderQuestion(questions[0]);
+  
 });
-// }
+
+
+// INITIALIZATION ---------------------------------------------------------
 
 // counter for user score
-userScore = 0;
 for (let i = 0; i < questions.choices.length; i++) {
   userAnswer = questions.choices[i];
 }
 // if-else statement that compares the user answer to correct choice and adds to user score
-if (userAnswer === questions.correctChoice) {
+if (userAnswer === quizData.correctChoice) {
   userScore++;
 } else {
   userScore--;

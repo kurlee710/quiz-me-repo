@@ -148,6 +148,7 @@ function calculateUserScore() {
   }
   // store each question score in local storage - json.stringify
   localStorage.setItem("userScore", JSON.stringify(userScore));
+  renderScoreBoard();
 }
 
 // function for rendering scoreboard

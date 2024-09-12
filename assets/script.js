@@ -30,7 +30,7 @@ CorrectAnswer :'Hyper Text Markup Language',
 ]
 
 let currentQuestionIndex = 0;
-let score =0;
+
 
 // creating event listeners for loading a quiz and handling the next question.
 document.addEventListener('DOMContentLoaded', loadQuiz);
@@ -58,14 +58,15 @@ function renderQuestion() {
                 <label for="choice${index}_${i}" class="form-check-label">${choice}</label>
               </div>
             `).join('')}
-          </div>
-        `;
+          </div>`;
+          
         quizList.appendChild(listItem);
       });
     }
     
-      //the renderQuestion function dynamically generates the HTML for each question and its corresponding choices.
+//the renderQuestion function dynamically generates 
+//the HTML for each question and its corresponding choices.
 //map() fn is used to loop over the choices array 
 //and create radio buttons for each choice.
   
-  document.addEventListener('DOMContentLoaded', renderQuestion);
+document.addEventListener('DOMContentLoaded', renderQuestion);

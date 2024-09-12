@@ -52,7 +52,8 @@ function renderQuestion() {
           <label for="choice${index}" class="form-check-label">${choice}</label>
         </div>
       `).join('')}`;
-      //he renderQuestion function dynamically generates the HTML for each question and its corresponding choices.
-//It uses map() to loop over the choices array and create radio buttons for
+      //the renderQuestion function dynamically generates the HTML for each question and its corresponding choices.
+//map() fn is used to loop over the choices array 
+//and create radio buttons for each choice.
   }
   document.addEventListener('DOMContentLoaded', renderQuestion);

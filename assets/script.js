@@ -3,7 +3,7 @@ const startBtn = document.getElementById("start-quiz");
 const submitBtn = document.getElementById("submit-btn");
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
-let userScore = 0;
+
 let currentQuestionIndex = 0;
 // create an array of objects  that stores correct answers
 let quizData = [
@@ -176,27 +176,10 @@ function loadQuiz() {
     `;
 }
 
-//the renderQuestion function dynamically generates
-//the HTML for each question and its corresponding choices.
-//map() fn is used to loop over the choices array
-//and create radio buttons for each choice.
 
-//document.addEventListener('DOMContentLoaded', renderQuestion);
 
 // INITIALIZATION ---------------------------------------------------------
 
-//   // counter for user score
-//   for (let i = 0; i < questions.choices.length; i++) {
-//     userAnswer = questions.choices[i];
-//   }
-//   // if-else statement that compares the user answer to correct choice and adds to user score
-//   if (userAnswer === quizData.correctChoice) {
-//     userScore++;
-//   } else {
-//     userScore--;
-//   }
-//   // store each question score in local storage - json.stringify - part of if-else statement
-//   localStorage.setItem("userScore", JSON.stringify(userScore));
 
 // Create a Next Question button
 const nextQuestionBtn = document.getElementById("next-question");
@@ -247,3 +230,27 @@ function endQuiz() {
 document.addEventListener("DOMContentLoaded", () => {
   loadQuiz(quizData[currentQuestionIndex]);
 });
+
+// function for storing user score
+function calculateUserScore() {
+      // counter for user score
+    let userScore = 0;
+  for (let i = 0; i < questions.choices.length; i++) {
+    userAnswer = questions.choices[i];
+  }
+  // if-else statement that compares the user answer to correct choice and adds to user score
+  if (userAnswer === quizData.correctChoice) {
+    userScore++;
+  } else {
+    userScore--;
+  }
+  // store each question score in local storage - json.stringify - part of if-else statement
+  localStorage.setItem("userScore", JSON.stringify(userScore));
+  localStorage.setItem("userScore", userScore);
+}
+
+// function for rendering scoreboard
+function renderScoreBoard() {
+  let userScore = localStorage.getItem("userScore");
+  scoreBoardEl.textContent = userScore;
+}

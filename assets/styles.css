@@ -1,6 +1,6 @@
-* {
-  border: 1px solid red;
-}
+/* * {
+  border: 1px solid rgb(39, 11, 181);
+} */
 
 footer {
   text-align: center;
@@ -24,6 +24,31 @@ div.card-header {
 div.container {
   margin-bottom: 15px;
   padding-bottom: 10px;
+  background-color: #eba1a1;
+}
+
+div.card-header.question {
+  border-radius: 15px;
+  background-color: rgb(29 120 211 / 32%);
+}
+.homepage {
+  background-color: #e97a7a;
+}
+
+button.submit-btn {
+  border-radius: 10px;
+}
+
+button.restart-btn {
+  border-radius: 10px;
+}
+
+ul.list-group.list-group-border {
+  border-radius: 15px;
+}
+
+div.card.container {
+  border-radius: 20px;
 }
 
 .form-container {

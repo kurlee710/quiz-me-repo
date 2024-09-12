@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/bootstrap.css">
 
 </head>
-<body>
+<body class="homepage">
    <header>
 <div class = "header"></div>
 <h1>WELCOME TO QUIZ ME APP </h1>
@@ -19,10 +19,10 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Results</a>
+            <a class="nav-link active" href="#">Results</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
+            <a class="nav-link active" href="#">Help</a>
         </li>
     </ul>
 </nav>
@@ -37,7 +37,7 @@
             <button type="submit">Submit</button>
         </form>
         <br>
-        <button type="button" class="btn btn-primary btn-lg" id="start-quiz">Start Quiz</button>
+        <button type="button" class="btn btn-primary" id="start-quiz">Start Quiz</button>
     </div>
     <div class="timer">
         <!-- Content here -->
@@ -46,9 +46,7 @@
     <div id="quiz-container" class="mt-4">
         <!-- Quiz content will be generated dynamically -->
       </div>
-        <div>
-        
-    </div>
+    
     <!-- //display right or wrong dynamically from js file -->
         <div id="feedback" class="text-center mt-3"> answer : </div> <!-- Display Correct/Incorrect message -->
    <!-- //score will show dynamically from js  -->

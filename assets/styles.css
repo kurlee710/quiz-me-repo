@@ -20,3 +20,11 @@ div.container {
 .homepage {
   background-color: #e97a7a;
 }
+
+button.submit-btn {
+  border-radius: 10px;
+}
+
+button.restart-btn {
+  border-radius: 10px;
+}

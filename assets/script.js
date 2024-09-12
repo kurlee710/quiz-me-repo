@@ -49,6 +49,18 @@ const timerEl = document.querySelector(".timer");
 // FUNCTIONS -----------------------------------------------
 
 
+function startTimer() {
+  
+    let timerInterval = setInterval(function () {
+
+        timeLeft--;
+    timerEl.textContent = timeLeft + " seconds remaining";
+    if (timeLeft === 0) {
+    clearInterval(timerInterval);
+    alert("Time's up!");
+}
+}, 1000);
+}
 
 
 // USER INTERACTIONS ------------------------------------------------------
@@ -58,19 +70,7 @@ startBtn.addEventListener("click", function() {
     startTimer();
     loadQuiz(quizData[0]);
 
-    function startTimer() {
-  
-        let timerInterval = setInterval(function () {
-    
-            timeLeft--;
-        timerEl.textContent = timeLeft + " seconds remaining";
-        if (timeLeft === 0) {
-        clearInterval(timerInterval);
-        alert("Time's up!");
-    }
-  }, 1000);
-}
-    
+ 
   });
   
   

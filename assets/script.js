@@ -88,7 +88,6 @@ function storeUserAnswer() {
       userAnswer = choices[i].value;
     }
   }
-  console.log(userAnswer);
   return userAnswer;
 }
 
@@ -100,6 +99,9 @@ startBtn.addEventListener("click", function () {
   startTimer();
   // loads the first question
   loadQuiz(quizData[currentQuestionIndex]);
+});
+submitBtn.addEventListener("click", function () {
+  console.log(userAnswer);
 });
 
 // document.addEventListener("DOMContentLoaded", loadQuiz); - do not need this line of code

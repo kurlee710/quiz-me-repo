@@ -51,14 +51,16 @@ function startTimer() {
   }, 1000);
 }
 
-// Function to render the current question
-// when the start quiz button os clicked
+// Function to render the current question when the start quiz button is clicked
+//the loadQuestion function dynamically generates
+//the HTML for each question and its corresponding choices.
+//map() fn is used to loop over the choices array
+//and create radio buttons for each choice.
 
 function loadQuiz() {
   // Clear any previous feedback CONTENT
   feedbackEl.innerHTML = "";
-
-  // Get the current question
+  // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
   let questionData = quizData[currentQuestionIndex];
 
   quizContainer.innerHTML = `
@@ -75,6 +77,19 @@ function loadQuiz() {
           .join("")}
       `;
 }
+// function to handle the next question when submit button is clicked
+
+// function that stores user answers
+function storeUserAnswer() {
+  let userAnswer = "";
+  let choices = document.getElementsByName("answer");
+  for (let i = 0; i < choices.length; i++) {
+    if (choices[i].checked) {
+      userAnswer = choices[i].value;
+    }
+  }
+  return userAnswer;
+}
 
 // USER INTERACTIONS ------------------------------------------------------
 // function to startQuiz
@@ -86,14 +101,8 @@ startBtn.addEventListener("click", function () {
   loadQuiz(quizData[currentQuestionIndex]);
 });
 
-// document.addEventListener("DOMContentLoaded", loadQuiz);
-
-//the renderQuestion function dynamically generates
-//the HTML for each question and its corresponding choices.
-//map() fn is used to loop over the choices array
-//and create radio buttons for each choice.
-
-//document.addEventListener('DOMContentLoaded', renderQuestion);
+// document.addEventListener("DOMContentLoaded", loadQuiz); - do not need this line of code
+//document.addEventListener('DOMContentLoaded', renderQuestion); - do not need this line of code
 
 // INITIALIZATION ---------------------------------------------------------
 

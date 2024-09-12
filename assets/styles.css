@@ -1,5 +1,5 @@
 * {
-  border: 1px solid red;
+  border: 1px solid rgb(39, 11, 181);
 }
 
 div.card-header {
@@ -17,6 +17,10 @@ div.container {
   background-color: #eba1a1;
 }
 
+div.card-header.question {
+  border-radius: 10px;
+  background-color: rgb(29 120 211 / 32%);
+}
 .homepage {
   background-color: #e97a7a;
 }
@@ -26,5 +30,9 @@ button.submit-btn {
 }
 
 button.restart-btn {
+  border-radius: 10px;
+}
+
+ul.list-group.list-group-border {
   border-radius: 10px;
 }

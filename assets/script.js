@@ -140,7 +140,7 @@ function loadQuiz(questionData) {
       .join("")}
   `;
 }
-console.log(quizContainer.innerHTML);
+
 // Function to handle end of the quiz
 function endQuiz() {
   quizContainer.innerHTML = `
@@ -151,7 +151,6 @@ function endQuiz() {
   nextQuestionBtn.style.display = "none";
 }
 
-// Call loadQuiz when the page is loaded and for each new question
 document.addEventListener("DOMContentLoaded", () => {
   loadQuiz(quizData[currentQuestionIndex]);
 });

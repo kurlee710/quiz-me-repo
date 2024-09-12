@@ -18,7 +18,7 @@ div.container {
 }
 
 div.card-header.question {
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: rgb(29 120 211 / 32%);
 }
 .homepage {
@@ -34,5 +34,9 @@ button.restart-btn {
 }
 
 ul.list-group.list-group-border {
-  border-radius: 10px;
+  border-radius: 15px;
+}
+
+div.card.container {
+  border-radius: 20px;
 }

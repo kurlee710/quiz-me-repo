@@ -1,6 +1,11 @@
 // DEPENDENCIES ------------------------------------------------------------
 const startBtn = document.getElementById("start-quiz");
 const submitBtn = document.getElementById("submit-btn");
+const quizContainer = document.getElementById("quiz-container");
+const feedbackEl = document.getElementById("feedback");
+const scoreBoardEl = document.getElementById("score-board");
+const timerEl = document.querySelector(".timer");
+
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
 let userScore = 0;
@@ -10,32 +15,29 @@ let quizData = [
   {
     question: "what does HTML stand for?",
     choices: [
-      "1.Hyper Text Markup Language",
-      "2.Home Tool Markup Language",
-      "3.Hyperlinks and Text Markup Language",
+      "Hyper Text Markup Language",
+      "Home Tool Markup Language",
+      "Hyperlinks and Text Markup Language",
     ],
     CorrectAnswer: "Hyper Text Markup Language",
   },
 
   {
     question: "Which HTML attribute is used to define inline styles?",
-    choices: ["1.styles", "2.style", "3.class"],
-    CorrectAnswer: "1.styles",
+    choices: ["styles", "style", "class"],
+    CorrectAnswer: "styles",
   },
   {
     question:
       "In a CSS document, how do you select all p elements inside a div element?",
-    choices: ["1.div + p", "2. div p", "3.div.p"],
-    CorrectAnswer: "2.div p",
+    choices: ["div + p", "div p", "div.p"],
+    CorrectAnswer: "div p",
   },
 ];
 // start quiz button to kick off quiz function
 const startBtn = document.getElementById("start-quiz");
-const questionData = quizData[currentQuestionIndex];
-const quizContainer = document.getElementById("quiz-container");
-const feedbackEl = document.getElementById("feedback");
-const scoreBoardEl = document.getElementById("score-board");
-const timerEl = document.querySelector(".timer");
+
+
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;

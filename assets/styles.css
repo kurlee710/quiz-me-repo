@@ -1,3 +1,17 @@
 * {
   border: 1px solid red;
 }
+
+div.card-header {
+  padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
+  margin-bottom: 5px;
+  margin-top: 5px;
+  color: var(--bs-card-cap-color);
+  background-color: rgb(29 120 211 / 32%);
+  border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
+}
+
+div.container {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}

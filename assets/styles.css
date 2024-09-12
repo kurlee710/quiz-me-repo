@@ -2,6 +2,16 @@
   border: 1px solid rgb(39, 11, 181);
 } */
 
+footer {
+  text-align: center;
+  padding: 5px;
+}
+
+header h1 {
+  text-align: center;
+  padding: 14px;
+}
+
 div.card-header {
   padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
   margin-bottom: 5px;
@@ -39,4 +49,9 @@ ul.list-group.list-group-border {
 
 div.card.container {
   border-radius: 20px;
+}
+
+.form-container {
+  text-align: center;
+  padding: 10px;
 }

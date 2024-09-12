@@ -36,24 +36,36 @@ let score =0;
 document.addEventListener('DOMContentLoaded', loadQuiz);
 document.getElementsById('start-quiz').addEventListener('click', renderQuestion);
 
-  // Function to render the current question when the start quiz button os clicked
+  // Function to render the current question
+  // when the start quiz button os clicked
 
 function renderQuestion() {
-    const questionData = questions[currentQuestionIndex];
+    const quizList= document.getElementsById('quiz-list');
   
     // Clear any previous feedback CONTENT 
     feedbackEl.innerHTML = '';
+    quizList.innerHTML = '';
 
     // Render the question and its choices
-    quizContainer.innerHTML = ` <h2>${questionData.question}</h2>
-      ${questionData.choices.map((choice, index) => `
-        <div class="form-check">
-          <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-          <label for="choice${index}" class="form-check-label">${choice}</label>
-        </div>
-      `).join('')}`;
+    quizData.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <div class="question">
+            <h3>Question ${index + 1}: ${item.question}</h3>
+            ${item.choices.map((choice, i) => `
+              <div class="form-check">
+                <input type="radio" name="question${index}" id="choice${index}_${i}" value="${choice}" class="form-check-input">
+                <label for="choice${index}_${i}" class="form-check-label">${choice}</label>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        quizList.appendChild(listItem);
+      });
+    }
+    
       //the renderQuestion function dynamically generates the HTML for each question and its corresponding choices.
 //map() fn is used to loop over the choices array 
 //and create radio buttons for each choice.
-  }
+  
   document.addEventListener('DOMContentLoaded', renderQuestion);

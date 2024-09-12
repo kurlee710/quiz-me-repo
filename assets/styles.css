@@ -2,6 +2,11 @@
   border: 1px solid red;
 }
 
+footer {
+  text-align: center;
+  padding: 5px;
+}
+
 div.card-header {
   padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
   margin-bottom: 5px;
@@ -14,4 +19,9 @@ div.card-header {
 div.container {
   margin-bottom: 15px;
   padding-bottom: 10px;
+}
+
+.form-container {
+  text-align: center;
+  padding: 10px;
 }

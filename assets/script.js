@@ -1,6 +1,6 @@
 // DEPENDENCIES ------------------------------------------------------------
 const startBtn = document.getElementById("start-quiz");
-const submitBtn = document.document.getElementsByName("submit");
+const submitBtn = document.getElementById("submit-btn");
 const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
@@ -91,6 +91,8 @@ function storeUserAnswer() {
   return userAnswer;
 }
 
+// function that stores user score
+
 // USER INTERACTIONS ------------------------------------------------------
 // function to startQuiz
 startBtn.addEventListener("click", function () {
@@ -100,6 +102,8 @@ startBtn.addEventListener("click", function () {
   // loads the first question
   loadQuiz(quizData[currentQuestionIndex]);
 });
+
+// console log user answer on clicking submit button
 submitBtn.addEventListener("click", function () {
   console.log(userAnswer);
 });
@@ -108,16 +112,7 @@ submitBtn.addEventListener("click", function () {
 //document.addEventListener('DOMContentLoaded', renderQuestion); - do not need this line of code
 
 // INITIALIZATION ---------------------------------------------------------
+storeUserAnswer();
 
-//   // counter for user score
-//   for (let i = 0; i < questions.choices.length; i++) {
-//     userAnswer = questions.choices[i];
-//   }
-//   // if-else statement that compares the user answer to correct choice and adds to user score
-//   if (userAnswer === quizData.correctChoice) {
-//     userScore++;
-//   } else {
-//     userScore--;
-//   }
 //   // store each question score in local storage - json.stringify - part of if-else statement
 //   localStorage.setItem("userScore", JSON.stringify(userScore));

@@ -1,3 +1,11 @@
+//DATA
+const questionData = quizData[currentQuestionIndex];
+const quizContainer = document.getElementsByClassName('card');
+const feedbackEl = document.getElementById('feedback');
+const scoreBoardEl = document.getElementById('score-board');
+
+
+
 // create an array of objects  that stores correct answers
 const quizData = [
 {
@@ -20,35 +28,31 @@ CorrectAnswer :'Hyper Text Markup Language',
 }
 
 ]
- let currentQuestionIndex = 0;
+
+let currentQuestionIndex = 0;
 let score =0;
 
-
+// creating event listeners for loading a quiz and handling the next question.
 document.addEventListener('DOMContentLoaded', loadQuiz);
-function loadQuiz() {
-    const questionData = quizData[currentQuestionIndex];
-    const quizContainer = document.getElementById('quiz-container');
-    const feedbackEl = document.getElementById('feedback');
-    const scoreBoardEl = document.getElementById('score-board');
+document.getElementsById('start-quiz').addEventListener('click', renderQuestion);
+
+  // Function to render the current question when the start quiz button os clicked
+
+function renderQuestion() {
+    const questionData = questions[currentQuestionIndex];
   
-function handleNextQuestion() {
-    const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-    const feedbackEl = document.getElementById('feedback');
-  
-    if (selectedAnswer) {
-      const userAnswer = selectedAnswer.value;
-      if (userAnswer === quizData[currentQuestionIndex].correct) {
-        score++;
-        feedbackEl.innerHTML = '<span class="text-success">Correct!</span>';
-      } else {
-        feedbackEl.innerHTML = `<span class="text-danger">Wrong! The correct answer is ${quizData[currentQuestionIndex].correct}.</span>`;
-      }
-  
-      currentQuestionIndex++;
-  
-      if (currentQuestionIndex < quizData.length) {
-        // Load the next question after a brief delay
-        setTimeout(loadQuiz, 1000); // Wait for 1 second before loading the next question
-      } else {
-        showResult();
-      }
+    // Clear any previous feedback CONTENT 
+    feedbackEl.innerHTML = '';
+
+    // Render the question and its choices
+    quizContainer.innerHTML = ` <h2>${questionData.question}</h2>
+      ${questionData.choices.map((choice, index) => `
+        <div class="form-check">
+          <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
+          <label for="choice${index}" class="form-check-label">${choice}</label>
+        </div>
+      `).join('')}`;
+      //he renderQuestion function dynamically generates the HTML for each question and its corresponding choices.
+//It uses map() to loop over the choices array and create radio buttons for
+  }
+  document.addEventListener('DOMContentLoaded', renderQuestion);

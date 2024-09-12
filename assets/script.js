@@ -141,12 +141,12 @@ function calculateUserScore() {
   let userScore = 0;
   let userAnswer = storeUserAnswer();
   // if-else statement that compares the user answer to correct choice and adds to user score
-  if (userAnswer === quizData.correctChoice) {
+  if (userAnswer === quizData.CorrectAnswer) {
     userScore++;
   } else {
     userScore--;
   }
-  // store each question score in local storage - json.stringify - part of if-else statement
+  // store each question score in local storage - json.stringify
   localStorage.setItem("userScore", JSON.stringify(userScore));
 }
 

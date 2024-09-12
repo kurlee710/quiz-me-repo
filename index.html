@@ -14,10 +14,16 @@
 <div class = "header"></div>
 <h1>WELCOME TO QUIZ ME APP </h1>
 <nav>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Results</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+        </li>
     </ul>
 </nav>
 </div>
@@ -31,24 +37,30 @@
             <button type="submit">Submit</button>
         </form>
         <br>
-        <button id="start-quiz">Start Quiz</button>
+        <button type="button" class="btn btn-primary btn-lg" id="start-quiz">Start Quiz</button>
     </div>
-    <div class="card" style="width: 18rem;">
+    <div class="timer">
+        <!-- Content here -->
+         <p>Time Left: </p>
+    </div>
+    <div class="card container" style="width: 18rem;">
         <div class="card-header">
-          Featured
+          1. What does HTML stand for?
         </div>
         <div>
         <ul id ="quiz-list" class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">A. Hyper Text Markup Language</li>
+          <li class="list-group-item">B. Home Tool Markup Language</li>
+          <li class="list-group-item">C. Hyperlinks and Text Markup Language</li>
+          <li class="list-group-item">D. Hyperlink Terminal Modern Language</li>
         </ul>
     </div>
     <!-- //display right or wrong dynamically from js file -->
         <div id="feedback" class="text-center mt-3"> answer : </div> <!-- Display Correct/Incorrect message -->
    <!-- //score will show dynamically from js  -->
         <div id="score-board" class="text-center mt-3">score</div> <!-- Scoreboard -->
+        <!-- <button type="submit" class="btn btn-primary btn-lg">Submit</button> -->
+        <!-- <button type="reset" class="btn btn-primary btn-lg">Restart</button> -->
         <button type="submit" class="submit-btn">Submit</button>
         <button type ="next" class ="next-btn">Next question</button>
       </div>

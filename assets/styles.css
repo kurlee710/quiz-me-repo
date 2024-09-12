@@ -2,6 +2,11 @@
   border: 1px solid red;
 }
 
+footer {
+  text-align: center;
+  padding: 5px;
+}
+
 header h1 {
   text-align: center;
   padding: 14px;
@@ -19,4 +24,9 @@ div.card-header {
 div.container {
   margin-bottom: 15px;
   padding-bottom: 10px;
+}
+
+.form-container {
+  text-align: center;
+  padding: 10px;
 }

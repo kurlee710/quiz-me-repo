@@ -2,6 +2,11 @@
   border: 1px solid red;
 }
 
+header h1 {
+  text-align: center;
+  padding: 14px;
+}
+
 div.card-header {
   padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
   margin-bottom: 5px;

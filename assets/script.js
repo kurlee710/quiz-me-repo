@@ -1,6 +1,6 @@
 // DEPENDENCIES ------------------------------------------------------------
 const startBtn = document.getElementById("start-quiz");
-const questionData = quizData[currentQuestionIndex];
+
 const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
@@ -51,16 +51,6 @@ function startTimer() {
   }, 1000);
 }
 
-// USER INTERACTIONS ------------------------------------------------------
-// function to startQuiz
-startBtn.addEventListener("click", function () {
-  //   console.log("start quiz button clicked");
-  startTimer(); // starts a timer for each question
-  loadQuiz(quizData[0]); // loads the first question
-});
-
-document.addEventListener("DOMContentLoaded", loadQuiz);
-
 // Function to render the current question
 // when the start quiz button os clicked
 
@@ -68,20 +58,35 @@ function loadQuiz() {
   // Clear any previous feedback CONTENT
   feedbackEl.innerHTML = "";
 
+  // Get the current question
+  let questionData = quizData[currentQuestionIndex];
+
   quizContainer.innerHTML = `
-      <h2>${questionData.question}</h2>
-      ${questionData.choices
-        .map(
-          (choice, index) => `
-        <div class="form-check">
-          <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-          <label for="choice${index}" class="form-check-label">${choice}</label>
-        </div>
-      `
-        )
-        .join("")}
-    `;
+        <h2>${questionData.question}</h2>
+        ${questionData.choices
+          .map(
+            (choice, index) => `
+          <div class="form-check">
+            <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
+            <label for="choice${index}" class="form-check-label">${choice}</label>
+          </div>
+        `
+          )
+          .join("")}
+      `;
 }
+
+// USER INTERACTIONS ------------------------------------------------------
+// function to startQuiz
+startBtn.addEventListener("click", function () {
+  //   console.log("start quiz button clicked");
+  // starts a timer for each question
+  startTimer();
+  // loads the first question
+  loadQuiz(quizData[currentQuestionIndex]);
+});
+
+// document.addEventListener("DOMContentLoaded", loadQuiz);
 
 //the renderQuestion function dynamically generates
 //the HTML for each question and its corresponding choices.

@@ -1,6 +1,6 @@
 // DEPENDENCIES ------------------------------------------------------------
 const startBtn = document.getElementById("start-quiz");
-
+const submitBtn = document.document.getElementsByName("submit");
 const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
@@ -88,6 +88,7 @@ function storeUserAnswer() {
       userAnswer = choices[i].value;
     }
   }
+  console.log(userAnswer);
   return userAnswer;
 }
 

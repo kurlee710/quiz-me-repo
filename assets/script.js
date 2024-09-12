@@ -35,7 +35,6 @@ let quizData = [
   },
 ];
 
-
 // FUNCTIONS -----------------------------------------------
 
 function startTimer() {
@@ -106,23 +105,18 @@ submitBtn.addEventListener("click", function () {
   console.log(userAnswer);
 });
 
-// document.addEventListener("DOMContentLoaded", loadQuiz); - do not need this line of code
-//document.addEventListener('DOMContentLoaded', renderQuestion); - do not need this line of code
-
 // INITIALIZATION ---------------------------------------------------------
 storeUserAnswer();
 
 //   // store each question score in local storage - json.stringify - part of if-else statement
 //   localStorage.setItem("userScore", JSON.stringify(userScore));
-  console.log("start quiz button clicked");
-  startTimer();
-  loadQuiz(quizData[0]);
-});
-
-document.addEventListener("DOMContentLoaded", loadQuiz);
 
 // Function to render the current question
 // when the start quiz button os clicked
+//the loadQuestion function dynamically generates
+//the HTML for each question and its corresponding choices.
+//map() fn is used to loop over the choices array
+//and create radio buttons for each choice.
 
 function loadQuiz() {
   // Clear any previous feedback CONTENT
@@ -142,13 +136,6 @@ function loadQuiz() {
         .join("")}
     `;
 }
-
-//the renderQuestion function dynamically generates
-//the HTML for each question and its corresponding choices.
-//map() fn is used to loop over the choices array
-//and create radio buttons for each choice.
-
-//document.addEventListener('DOMContentLoaded', renderQuestion);
 
 // INITIALIZATION ---------------------------------------------------------
 

@@ -20,4 +20,35 @@ CorrectAnswer :'Hyper Text Markup Language',
 }
 
 ]
+ let currentQuestionIndex = 0;
+let score =0;
 
+
+document.addEventListener('DOMContentLoaded', loadQuiz);
+function loadQuiz() {
+    const questionData = quizData[currentQuestionIndex];
+    const quizContainer = document.getElementById('quiz-container');
+    const feedbackEl = document.getElementById('feedback');
+    const scoreBoardEl = document.getElementById('score-board');
+  
+function handleNextQuestion() {
+    const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+    const feedbackEl = document.getElementById('feedback');
+  
+    if (selectedAnswer) {
+      const userAnswer = selectedAnswer.value;
+      if (userAnswer === quizData[currentQuestionIndex].correct) {
+        score++;
+        feedbackEl.innerHTML = '<span class="text-success">Correct!</span>';
+      } else {
+        feedbackEl.innerHTML = `<span class="text-danger">Wrong! The correct answer is ${quizData[currentQuestionIndex].correct}.</span>`;
+      }
+  
+      currentQuestionIndex++;
+  
+      if (currentQuestionIndex < quizData.length) {
+        // Load the next question after a brief delay
+        setTimeout(loadQuiz, 1000); // Wait for 1 second before loading the next question
+      } else {
+        showResult();
+      }

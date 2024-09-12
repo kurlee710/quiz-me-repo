@@ -54,26 +54,26 @@ function startTimer() {
 //map() fn is used to loop over the choices array
 //and create radio buttons for each choice.
 
-function loadQuiz() {
-  // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = "";
-  // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
-  let questionData = quizData[currentQuestionIndex];
+// function loadQuiz() {
+//   // Clear any previous feedback CONTENT
+//   feedbackEl.innerHTML = "";
+//   // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
+//   let questionData = quizData[currentQuestionIndex];
 
-  quizContainer.innerHTML = `
-        <h2>${questionData.question}</h2>
-        ${questionData.choices
-          .map(
-            (choice, index) => `
-          <div class="form-check">
-            <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-            <label for="choice${index}" class="form-check-label">${choice}</label>
-          </div>
-        `
-          )
-          .join("")}
-      `;
-}
+//   quizContainer.innerHTML = `
+//         <h2>${questionData.question}</h2>
+//         ${questionData.choices
+//           .map(
+//             (choice, index) => `
+//           <div class="form-check">
+//             <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
+//             <label for="choice${index}" class="form-check-label">${choice}</label>
+//           </div>
+//         `
+//           )
+//           .join("")}
+//       `;
+// }
 // function to handle the next question when submit button is clicked
 
 // function that stores user answers

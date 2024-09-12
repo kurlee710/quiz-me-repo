@@ -118,3 +118,40 @@ function nextQuestion() {
     endQuiz();
   }
 }
+console.log(quizData);
+
+nextQuestionBtn.addEventListener("click", nextQuestion);
+
+// Modify loadQuiz to take an index to load specific question
+function loadQuiz(questionData) {
+  feedbackEl.innerHTML = "";
+
+  quizContainer.innerHTML = `
+    <h2>${questionData.question}</h2>
+    ${questionData.choices
+      .map(
+        (choice, index) => `
+      <div class="form-check">
+        <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
+        <label for="choice${index}" class="form-check-label">${choice}</label>
+      </div>
+    `
+      )
+      .join("")}
+  `;
+}
+console.log(quizContainer.innerHTML);
+// Function to handle end of the quiz
+function endQuiz() {
+  quizContainer.innerHTML = `
+    <h2>Quiz Over!</h2>
+    <p>Your final score is: ${userScore}</p>
+  `;
+  // Hide Next Question button
+  nextQuestionBtn.style.display = "none";
+}
+
+// Call loadQuiz when the page is loaded and for each new question
+document.addEventListener("DOMContentLoaded", () => {
+  loadQuiz(quizData[currentQuestionIndex]);
+});

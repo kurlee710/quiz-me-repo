@@ -111,47 +111,6 @@ storeUserAnswer();
 //   // store each question score in local storage - json.stringify - part of if-else statement
 //   localStorage.setItem("userScore", JSON.stringify(userScore));
 
-// Function to render the current question
-// when the start quiz button os clicked
-//the loadQuestion function dynamically generates
-//the HTML for each question and its corresponding choices.
-//map() fn is used to loop over the choices array
-//and create radio buttons for each choice.
-
-function loadQuiz() {
-  // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = "";
-
-  quizContainer.innerHTML = `
-      <h2>${questionData.question}</h2>
-      ${questionData.choices
-        .map(
-          (choice, index) => `
-        <div class="form-check">
-          <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-          <label for="choice${index}" class="form-check-label">${choice}</label>
-        </div>
-      `
-        )
-        .join("")}
-    `;
-}
-
-// INITIALIZATION ---------------------------------------------------------
-
-//   // counter for user score
-//   for (let i = 0; i < questions.choices.length; i++) {
-//     userAnswer = questions.choices[i];
-//   }
-//   // if-else statement that compares the user answer to correct choice and adds to user score
-//   if (userAnswer === quizData.correctChoice) {
-//     userScore++;
-//   } else {
-//     userScore--;
-//   }
-//   // store each question score in local storage - json.stringify - part of if-else statement
-//   localStorage.setItem("userScore", JSON.stringify(userScore));
-
 // Create a Next Question button
 const nextQuestionBtn = document.getElementById("next-question");
 

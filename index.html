@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/bootstrap.css">
 
 </head>
-<body>
+<body class="homepage">
    <header>
 <div class = "header"></div>
 <h1>WELCOME TO QUIZ ME APP </h1>
@@ -37,7 +37,7 @@
             <button type="submit">Submit</button>
         </form>
         <br>
-        <button id="start-quiz">Start Quiz</button>
+        <button type="button" class="btn btn-primary btn-lg" id="start-quiz">Start Quiz</button>
     </div>
     <div class="timer">
         <!-- Content here -->
@@ -57,6 +57,8 @@
         <div id="feedback" class="text-center mt-3"> answer : </div> <!-- Display Correct/Incorrect message -->
    <!-- //score will show dynamically from js  -->
         <div id="score-board" class="text-center mt-3">score</div> <!-- Scoreboard -->
+        <!-- <button type="submit" class="btn btn-primary btn-lg">Submit</button> -->
+        <!-- <button type="reset" class="btn btn-primary btn-lg">Restart</button> -->
         <button type="submit" class="submit-btn">Submit</button>
         <button type ="reset" class ="restart-btn">Restart</button>
       </div>

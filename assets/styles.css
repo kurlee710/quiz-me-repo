@@ -14,4 +14,9 @@ div.card-header {
 div.container {
   margin-bottom: 15px;
   padding-bottom: 10px;
+  background-color: #eba1a1;
+}
+
+.homepage {
+  background-color: #e97a7a;
 }

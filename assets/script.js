@@ -153,6 +153,6 @@ function calculateUserScore() {
 
 // function for rendering scoreboard
 function renderScoreBoard() {
-  let userScore = localStorage.getItem("userScore");
+  let userScore = JSON.parse(localStorage.getItem("userScore"));
   scoreBoardEl.textContent = userScore;
 }

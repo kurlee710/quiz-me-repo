@@ -10,3 +10,8 @@ div.card-header {
   background-color: rgb(29 120 211 / 32%);
   border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
+
+div.container {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}

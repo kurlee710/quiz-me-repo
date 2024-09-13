@@ -10,7 +10,7 @@ const errorEl = document.getElementById("error");
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
 let currentQuestionIndex = 0;
-
+let userScore = 0;
 // create an array of objects  that stores correct answers
 let quizData = [
   {
@@ -20,19 +20,19 @@ let quizData = [
       "Home Tool Markup Language",
       "Hyperlinks and Text Markup Language",
     ],
-    CorrectAnswer: "Hyper Text Markup Language",
+    correctAnswer: "Hyper Text Markup Language",
   },
 
   {
     question: "Which HTML attribute is used to define inline styles?",
     choices: ["styles", "style", "class"],
-    CorrectAnswer: "styles",
+    correctAnswer: "styles",
   },
   {
     question:
       "In a CSS document, how do you select all p elements inside a div element?",
     choices: ["div + p", ".div p", ".div.p"],
-    CorrectAnswer: ".div p",
+    correctAnswer: ".div p",
   },
 ];
 
@@ -138,6 +138,13 @@ const nextQuestionBtn = document.getElementById("next-question");
 
 // Function to handle moving to the next question
 function nextQuestion() {
+  const userAnswer = storeUserAnswer();
+  if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
+    userScore++;
+  }
+
+  scoreBoardEl.textContent = `Score: ${userScore}`;
+
   currentQuestionIndex++;
 
   if (currentQuestionIndex < quizData.length) {
@@ -184,32 +191,7 @@ function endQuiz() {
   `;
   // Hide Next Question button
   nextQuestionBtn.style.display = "none";
-}
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   loadQuiz(quizData[currentQuestionIndex]);
-// });
-
-// function for storing user score
-function calculateUserScore() {
-  // counter for user score
-  let userScore = 0;
-  let userAnswer = storeUserAnswer();
-  // if-else statement that compares the user answer to correct choice and adds to user score
-  if (userAnswer === quizData.CorrectAnswer) {
-    userScore++;
-  } else {
-    userScore--;
-  }
-  // store each question score in local storage - json.stringify
-  localStorage.setItem("userScore", JSON.stringify(userScore));
-  renderScoreBoard();
-}
-
-// function for rendering scoreboard
-function renderScoreBoard() {
-  let userScore = JSON.parse(localStorage.getItem("userScore"));
-  scoreBoardEl.textContent = userScore;
+  scoreBoardEl.textContent = `Final Score: ${userScore}`;
 }
 
 function themeSwitch() {
@@ -237,4 +219,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("flexSwitchCheckChecked").checked =
       savedTheme === "dark";
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadQuiz(quizData[currentQuestionIndex]);
 });

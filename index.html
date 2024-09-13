@@ -14,6 +14,23 @@
 <div class = "header"></div>
 <h1>WELCOME TO QUIZ ME APP </h1>
 
+<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <nav>
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -52,14 +69,9 @@
       </div>
     
     <!-- //display right or wrong dynamically from js file -->
-        <div id="feedback" class="text-center mt-3"> answer : <span id="answer"></span> </div> <!-- Display Correct/Incorrect message -->
         <div id="feedback" class="text-center mt-3">Answer : </div> <!-- Display Correct/Incorrect message -->
    <!-- //score will show dynamically from js  -->
-        <div id="score-board" class="text-center mt-3">score</div> <!-- Scoreboard -->
-        <button type="submit" id="submit-btn">submit</button>
-
         <div id="score-board" class="text-center mt-3">Score :</div> <!-- Scoreboard -->
-
         <button id="next-question" class="btn btn-primary btn-sm">Next Question</button>
         <!-- <button type ="next" class ="next-btn">Next question</button> -->
     </div>
@@ -79,6 +91,7 @@
             />
           </div>   
     </div>
+    
     
 </footer>
 <script src="./assets/script.js"></script>

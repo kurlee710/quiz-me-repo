@@ -5,8 +5,8 @@ const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
-
 const errorEl = document.getElementById("error");
+
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
@@ -46,17 +46,27 @@ console.log('form', form);
 
 ///Add an event listener to handle form submission
 form.addEventListener('submit', function (event) {
-  alert('asdsad');
-  //Prevent the form from actually submitting
+ //Prevent the form from actually submitting
   event.preventDefault();
 
   // Get the values from the form inputs
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
+  if (!name || !email) {
+    errorEl.textContent = "Please enter your name and email.";
+   
+
+
+
+  errorEl.textContent = "";
+    return;
+
+  }
 
   // // store the data in localStorage or handle it further
   localStorage.setItem('userName', name);
   localStorage.setItem('userEmail', email);
+
 
   console.log(name);
   console.log(email);
@@ -116,25 +126,6 @@ function storeUserAnswer() {
   return userAnswer;
 }
 
-// USER INTERACTIONS ------------------------------------------------------
-
-// function to generate error if userform is submitted blank.
-// userform.addEventListener("click", function (event) {
-//   event.preventDefault();
-
-//   const username = document.getElementById("name").value.trim();
-//   const useremail = document.getElementById("email").value.trim();
-//   const errorEl = document.getElementById("error");
-
-//   if (!username || !useremail) {
-//     errorEl.textContent = "Please enter your name and email.";
-//     return;
-//   }
-
-//   errorEl.textContent = "";
-// });
-
-// console.log(userform);
 
 // function to startQuiz
 startBtn.addEventListener("click", function () {

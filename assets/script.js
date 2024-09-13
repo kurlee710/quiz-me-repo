@@ -5,6 +5,8 @@ const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
+const userform = document.querySelector(".userform");
+const errorEl = document.getElementById("error");
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
@@ -37,30 +39,33 @@ let quizData = [
 
 
 // FUNCTIONS -----------------------------------------------
-const form = document.getElementById('userForm');
-    // Add an event listener to handle form submission
-    form.addEventListener('submit', function(event) {
-      // Prevent the form from actually submitting
-      event.preventDefault();
+
+//This is breaking the userform event listener
+ const form = document.getElementById('userForm');
+ Add an event listener to handle form submission
+//     form.addEventListener('submit', function(event) {
+//       // Prevent the form from actually submitting
+//       event.preventDefault();
    
 
-// Get the values from the form inputs
-const name = document.getElementById('name').value;
-const email = document.getElementById('email').value;
+// // Get the values from the form inputs
+// const name = document.getElementById('name').value;
+// const email = document.getElementById('email').value;
 
-// store the data in localStorage or handle it further
-localStorage.setItem('userName', name);
-localStorage.setItem('userEmail', email);
+// // store the data in localStorage or handle it further
+// localStorage.setItem('userName', name);
+// localStorage.setItem('userEmail', email);
 
-console.log(name);
-console.log("Email:", email);
+// console.log(name);
+// console.log("Email:", email);
 
 //After storing the data or handling it, the input fields are cleared by setting their values to an empty string:
 document.getElementById('name').value = '';
 document.getElementById('email').value = '';
 
 
-});
+
+ });
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;
@@ -110,6 +115,25 @@ function storeUserAnswer() {
 }
 
 // USER INTERACTIONS ------------------------------------------------------
+
+// function to generate error if userform is submitted blank.
+userform.addEventListener("click", function(event){
+  event.preventDefault();
+
+  const username = document.getElementById("name").value.trim();
+  const useremail = document.getElementById("email").value.trim();
+  const errorEl = document.getElementById("error");
+
+  if (!username || !useremail) {
+    errorEl.textContent = "Please enter your name and email.";
+    return;
+  }
+
+  errorEl.textContent = "";
+});
+
+console.log(userform);
+
 // function to startQuiz
 startBtn.addEventListener("click", function () {
   //   console.log("start quiz button clicked");
@@ -142,6 +166,34 @@ function nextQuestion() {
 }
 console.log(quizData);
 
+// This is breaking the userform event listener
+// nextQuestionBtn.addEventListener("click", nextQuestion);
+
+// // Function to render the current question when the start quiz button is clicked
+// //the loadQuestion function dynamically generates
+// //the HTML for each question and its corresponding choices.
+// //map() fn is used to loop over the choices array
+// //and create radio buttons for each choice.
+// // Modify loadQuiz to take an index to load specific question
+// function loadQuiz(questionData) {
+//   // Clear any previous feedback CONTENT
+//   feedbackEl.innerHTML = "";
+//   // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
+//   let questionData = quizData[currentQuestionIndex];
+//   quizContainer.innerHTML = `
+//     <h2>${questionData.question}</h2>
+//     ${questionData.choices
+//       .map(
+//         (choice, index) => `
+//       <div class="form-check">
+//         <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
+//         <label for="choice${index}" class="form-check-label">${choice}</label>
+//       </div>
+//     `
+//       )
+//       .join("")}
+//   `;
+// }
 
 nextQuestionBtn.addEventListener("click", nextQuestion);
 // Function to handle end of the quiz

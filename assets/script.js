@@ -143,8 +143,6 @@ function nextQuestion() {
     userScore++;
   }
 
-  scoreBoardEl.textContent = `Score: ${userScore}`;
-
   currentQuestionIndex++;
 
   if (currentQuestionIndex < quizData.length) {
@@ -191,7 +189,6 @@ function endQuiz() {
   `;
   // Hide Next Question button
   nextQuestionBtn.style.display = "none";
-  scoreBoardEl.textContent = `Final Score: ${userScore}`;
 }
 
 function themeSwitch() {

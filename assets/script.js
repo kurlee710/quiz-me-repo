@@ -155,7 +155,9 @@ function nextQuestion() {
 }
 console.log(quizData);
 
-nextQuestionBtn.addEventListener("click", nextQuestion);
+nextQuestionBtn.addEventListener("click", nextQuestion) {
+  startTimer();
+};
 
 // // Function to render the current question when the start quiz button is clicked
 // //the loadQuestion function dynamically generates

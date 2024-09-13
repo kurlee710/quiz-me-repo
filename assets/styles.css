@@ -55,3 +55,13 @@ div.card.container {
   text-align: center;
   padding: 10px;
 }
+
+#feedback {
+  border: 1px solid black;
+  width: 100%
+}
+
+#score-board {
+  border: 1px solid black;
+  width: 100%
+}

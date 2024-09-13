@@ -11,7 +11,7 @@ const nextBtn = document.getElementById("next-question");
 // DATA -------------------------------------------------------------------
 let timeLeft = 10;
 let currentQuestionIndex = 0;
-
+let userScore = 0;
 // create an array of objects  that stores correct answers
 let quizData = [
   {
@@ -21,19 +21,19 @@ let quizData = [
       "Home Tool Markup Language",
       "Hyperlinks and Text Markup Language",
     ],
-    CorrectAnswer: "Hyper Text Markup Language",
+    correctAnswer: "Hyper Text Markup Language",
   },
 
   {
     question: "Which HTML attribute is used to define inline styles?",
     choices: ["styles", "style", "class"],
-    CorrectAnswer: "styles",
+    correctAnswer: "styles",
   },
   {
     question:
       "In a CSS document, how do you select all p elements inside a div element?",
     choices: ["div + p", ".div p", ".div.p"],
-    CorrectAnswer: ".div p",
+    correctAnswer: ".div p",
   },
 ];
 
@@ -52,11 +52,17 @@ form.addEventListener("submit", function (event) {
   // Get the values from the form inputs
   const name = event.target[0].value;
   const email = event.target[1].value;
-  if (!name || !email) {
-    alert("please enter email !");
+  if (!name && !email) {
+  alert("please enter email and name !");}
+  else if (!email){
+    alert ("please enter email")}
 
-    return;
-  }
+else if(!name){
+  alert ("please enter name");
+}
+  ""
+
+  
 
   // // store the data in localStorage or handle it further
   localStorage.setItem("userName", name);
@@ -82,6 +88,7 @@ function startTimer() {
     }
   }, 1000);
 }
+};
 
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
@@ -127,7 +134,9 @@ startBtn.addEventListener("click", function () {
   // starts a timer for each question
   startTimer();
   // loads the first question
-  loadQuiz(quizData[currentQuestionIndex]);
+  loadQuiz(quizData[currentQuestionIndex]);  
+  // display next question button
+  document.getElementById("next-question").style.display = "block";
 });
 
 // // console log user answer on clicking submit button
@@ -143,6 +152,11 @@ const nextQuestionBtn = document.getElementById("next-question");
 
 // Function to handle moving to the next question
 function nextQuestion() {
+  const userAnswer = storeUserAnswer();
+  if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
+    userScore++;
+  }
+
   currentQuestionIndex++;
 
   if (currentQuestionIndex < quizData.length) {
@@ -195,32 +209,6 @@ function endQuiz() {
   nextQuestionBtn.style.display = "none";
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   loadQuiz(quizData[currentQuestionIndex]);
-// });
-
-// function for storing user score
-function calculateUserScore() {
-  // counter for user score
-  let userScore = 0;
-  let userAnswer = storeUserAnswer();
-  // if-else statement that compares the user answer to correct choice and adds to user score
-  if (userAnswer === quizData.CorrectAnswer) {
-    userScore++;
-  } else {
-    userScore--;
-  }
-  // store each question score in local storage - json.stringify
-  localStorage.setItem("userScore", JSON.stringify(userScore));
-  renderScoreBoard();
-}
-
-// function for rendering scoreboard
-function renderScoreBoard() {
-  let userScore = JSON.parse(localStorage.getItem("userScore"));
-  scoreBoardEl.textContent = userScore;
-}
-
 function themeSwitch() {
   const body = document.body;
   const currentTheme = body.getAttribute("data-bs-theme");
@@ -246,4 +234,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("flexSwitchCheckChecked").checked =
       savedTheme === "dark";
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadQuiz(quizData[currentQuestionIndex]);
 });

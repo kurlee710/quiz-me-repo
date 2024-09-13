@@ -81,16 +81,13 @@ function loadQuiz(questionData) {
    
     quizContainer.innerHTML = `
       <h2>${questionData.question}</h2>
-      ${questionData.choices
-        .map(
-          (choice, index) => `
-        <div class="form-check">
+     ${questionData.choices
+                 .map(         (choice, index) => `
+       <div class="form-check">
           <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-          <label for="choice${index}" class="form-check-label">${choice}</label>
-        </div>
-      `
-        )
-        .join("")}
+           <label for="choice${index}" class="form-check-label">${choice}</label>         </div>
+       `
+        ) .join("")}
     `;
   }
   

@@ -55,3 +55,12 @@ div.card.container {
   text-align: center;
   padding: 10px;
 }
+
+div.card.footer {
+  background-color: #c86868;
+  border-radius: 20px;
+}
+
+div.form-check.form-switch.d-flex {
+  margin: 0px;
+}

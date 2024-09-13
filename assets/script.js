@@ -80,6 +80,8 @@ userform.addEventListener("click", function(event){
   errorEl.textContent = "";
 });
 
+console.log(userform);
+
 // function to startQuiz
 startBtn.addEventListener("click", function () {
   //   console.log("start quiz button clicked");
@@ -112,33 +114,33 @@ function nextQuestion() {
 }
 console.log(quizData);
 
-nextQuestionBtn.addEventListener("click", nextQuestion);
+// nextQuestionBtn.addEventListener("click", nextQuestion);
 
-// Function to render the current question when the start quiz button is clicked
-//the loadQuestion function dynamically generates
-//the HTML for each question and its corresponding choices.
-//map() fn is used to loop over the choices array
-//and create radio buttons for each choice.
-// Modify loadQuiz to take an index to load specific question
-function loadQuiz(questionData) {
-  // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = "";
-  // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
-  let questionData = quizData[currentQuestionIndex];
-  quizContainer.innerHTML = `
-    <h2>${questionData.question}</h2>
-    ${questionData.choices
-      .map(
-        (choice, index) => `
-      <div class="form-check">
-        <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-        <label for="choice${index}" class="form-check-label">${choice}</label>
-      </div>
-    `
-      )
-      .join("")}
-  `;
-}
+// // Function to render the current question when the start quiz button is clicked
+// //the loadQuestion function dynamically generates
+// //the HTML for each question and its corresponding choices.
+// //map() fn is used to loop over the choices array
+// //and create radio buttons for each choice.
+// // Modify loadQuiz to take an index to load specific question
+// function loadQuiz(questionData) {
+//   // Clear any previous feedback CONTENT
+//   feedbackEl.innerHTML = "";
+//   // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
+//   let questionData = quizData[currentQuestionIndex];
+//   quizContainer.innerHTML = `
+//     <h2>${questionData.question}</h2>
+//     ${questionData.choices
+//       .map(
+//         (choice, index) => `
+//       <div class="form-check">
+//         <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
+//         <label for="choice${index}" class="form-check-label">${choice}</label>
+//       </div>
+//     `
+//       )
+//       .join("")}
+//   `;
+// }
 
 // Function to handle end of the quiz
 function endQuiz() {

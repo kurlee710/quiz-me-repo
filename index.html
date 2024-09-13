@@ -31,11 +31,12 @@
 <main>
     <div class="form-container">
         <h2>Please enter your name and email</h2>
-        <form method="post" id = "userForm">
+        <form class = userform method="post">
             <input type="text" name="name" id="name" placeholder="Name">
             <input type="email" name="email" id="email" placeholder="name@domain.com">
-            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-            
+            <button type="button" class="btn btn-primary btn-sm">Submit</button>
+            <p id="error"></p>
+            <!-- <button type="submit">Submit</button> -->
         </form>
         <br>
         <button type="button" class="btn btn-primary" id="start-quiz">Start Quiz</button>
@@ -52,8 +53,8 @@
         <div id="feedback" class="text-center mt-3"> answer : </div> <!-- Display Correct/Incorrect message -->
    <!-- //score will show dynamically from js  -->
         <div id="score-board" class="text-center mt-3">score</div> <!-- Scoreboard -->
-        <!-- <button type="submit" id="submit-btn" class="btn btn-primary btn-sm">Submit</button> -->
-        <!-- <button type="submit" class="submit-btn">Submit</button>  -->
+        <button type="submit" id="submit-btn" class="btn btn-primary btn-sm">Submit</button>
+        <!-- <button type="submit" class="submit-btn">Submit</button> -->
         <button id="next-question" class="btn btn-primary btn-sm">Next Question</button>
         <!-- <button type ="next" class ="next-btn">Next question</button> -->
     </div>

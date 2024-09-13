@@ -69,6 +69,10 @@ form.addEventListener("submit", function (event) {
   document.getElementById("email").value = "";
 });
 
+let onclick = function clickNextBtn() {
+  document.getElementById("next-question");
+};
+
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;
@@ -78,7 +82,7 @@ function startTimer() {
       alert("Time's up!");
     } else if (currentQuestionIndex === quizData.length) {
       clearInterval(timerInterval);
-    } else if (document.getElementById("next-question").clicked) {
+    } else if (clickNextBtn) {
       clearInterval(timerInterval);
     }
   }, 1000);

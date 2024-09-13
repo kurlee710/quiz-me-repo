@@ -5,11 +5,17 @@
 footer {
   text-align: center;
   padding: 5px;
+  margin-top: 40px;
 }
 
 header h1 {
   text-align: center;
   padding: 14px;
+}
+
+div h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 div.card-header {

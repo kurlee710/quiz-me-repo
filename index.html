@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" theme: dark
+    >
     <title>Quiz Me Repo</title>
     
     <link rel="stylesheet" href="./assets/styles.css">
     <link rel="stylesheet" href="./assets/bootstrap.css">
 
 </head>
-<body class="homepage">
+<body  data-bs-theme="light" class="homepage">
    <header>
 <div class = "header"></div>
 <h1>WELCOME TO QUIZ ME APP </h1>
@@ -61,14 +62,20 @@
     </div>
       
 </main>
-   <footer>
+   <footer class="dark-mode">
     <div class="card footer">
         <p>&copy; 2024 Quiz Me App. All rights reserved.</p>
         <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
-        <div class="form-check form-switch d-flex justify-content-right mt-4">
-            <input class="form-check-input" type="checkbox" id="themeSwitch">
-            <label class="form-check-label ms-3" for="themeSwitch">Dark Mode</label>
-           </div> 
+        <div class="form-check form-switch mx-4">
+            <input
+              class="form-check-input p-2"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked
+              onclick="themeSwitch()"
+            />
+          </div>   
     </div>
     
 </footer>

@@ -156,3 +156,27 @@ function renderScoreBoard() {
   let userScore = JSON.parse(localStorage.getItem("userScore"));
   scoreBoardEl.textContent = userScore;
 }
+
+const html = document.getElementById("htmlPage");
+const checkbox = document.getElementById("checkbox");
+checkbox.addEventListener("change", () => {
+  if (checkbox.checked) {
+    html.setAttribute("data-bs-theme", "dark");
+  } else {
+    html.setAttribute("data-bs-theme", "light");
+  }
+});
+function themeSwitch() {
+  var element = document.body;
+  element.dataset.bsTheme =
+    element.dataset.bsTheme == "light" ? "dark" : "light";
+}
+function stepFunction(event) {
+  debugger;
+  var element = document.getElementsByClassName("collapse");
+  for (var i = 0; i < element.length; i++) {
+    if (element[i] !== event.target.ariaControls) {
+      element[i].classList.remove("show");
+    }
+  }
+}

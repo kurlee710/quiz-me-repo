@@ -37,23 +37,14 @@ let quizData = [
 
 
 // FUNCTIONS -----------------------------------------------
+const form = document.getElementById('userForm');
+function submitForm(e) {
+   
 
-function submitForm() {
-    // Get the values from the form inputs
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-
-    //Store the values in local storage
-    localStorage.setItem("name", name);
-    localStorage.setItem("email", email);
-
-    // Optional: log the stored values for testing purposes
-    console.log("Stored Name:", localStorage.getItem("name"));
-    console.log("Stored Email:", localStorage.getItem("email"));
-
-    // Submit the form
     document.getElementById("userForm").submit();
-}
+  }
+
+
 
 function startTimer() {
   let timerInterval = setInterval(function () {

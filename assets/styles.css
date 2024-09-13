@@ -51,6 +51,7 @@ div.card.container {
 .form-container {
   text-align: center;
   padding: 10px;
+  justify-content: center;
 }
 
 div.card.footer {
@@ -60,4 +61,28 @@ div.card.footer {
 
 div.form-check.form-switch {
   text-align: left;
+}
+
+#feedback {
+  border: 1px solid black;
+  width: 47%;
+  display: flex;
+  justify-content: left;
+  border-width: 1px;
+  margin: 0 auto;
+  background: cadetblue;
+}
+
+#score-board {
+  border: 1px solid black;
+  width: 47%;
+  display: flex;
+  justify-content: left;
+  border-width: 1px;
+  margin: 0 auto;
+  background: cadetblue;
+}
+
+#next-question {
+  display: none;
 }

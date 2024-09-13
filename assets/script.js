@@ -51,11 +51,17 @@ form.addEventListener("submit", function (event) {
   // Get the values from the form inputs
   const name = event.target[0].value;
   const email = event.target[1].value;
-  if (!name || !email) {
-    alert("please enter email !");
+  if (!name && !email) {
+  alert("please enter email and name !");}
+  else if (!email){
+    alert ("please enter email")}
 
-    return;
-  }
+else if(!name){
+  alert ("please enter name");
+}
+  ""
+
+  
 
   // // store the data in localStorage or handle it further
   localStorage.setItem("userName", name);
@@ -77,7 +83,8 @@ function startTimer() {
       alert("Time's up!");
     }
   }, 1000);
-}
+};
+
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
 //the loadQuestion function dynamically generates
@@ -122,7 +129,9 @@ startBtn.addEventListener("click", function () {
   // starts a timer for each question
   startTimer();
   // loads the first question
-  loadQuiz(quizData[currentQuestionIndex]);
+  loadQuiz(quizData[currentQuestionIndex]);  
+  // display next question button
+  document.getElementById("next-question").style.display = "block";
 });
 
 // // console log user answer on clicking submit button

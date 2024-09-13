@@ -65,7 +65,7 @@ function startTimer() {
     }
   }, 1000);
 }
-
+let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
 //the loadQuestion function dynamically generates
 //the HTML for each question and its corresponding choices.
@@ -73,7 +73,7 @@ function startTimer() {
 //and create radio buttons for each choice.
 // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
-    let questionData = quizData[currentQuestionIndex];
+    
     // Clear any previous feedback CONTENT
     feedbackEl.innerHTML = " ";
     // Get the current question - created a local variable instead of a global variable.

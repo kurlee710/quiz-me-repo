@@ -5,7 +5,7 @@ const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
-const userform = document.querySelector(".userform");
+
 const errorEl = document.getElementById("error");
 
 // DATA -------------------------------------------------------------------
@@ -40,24 +40,23 @@ let quizData = [
 
 // FUNCTIONS -----------------------------------------------
 
-//This is breaking the userform event listener
- const form = document.getElementById('userForm');
- Add an event listener to handle form submission
-//     form.addEventListener('submit', function(event) {
-//       // Prevent the form from actually submitting
-//       event.preventDefault();
-   
+const userform = document.querySelector(".userform");
 
-// // Get the values from the form inputs
-// const name = document.getElementById('name').value;
-// const email = document.getElementById('email').value;
+ ///Add an event listener to handle form submission
+    form.addEventListener('submit', function(event) {
+      //Prevent the form from actually submitting
+       event.preventDefault();
+   
+// Get the values from the form inputs
+ const name = document.getElementById('name').value;
+ const email = document.getElementById('email').value;
 
 // // store the data in localStorage or handle it further
-// localStorage.setItem('userName', name);
-// localStorage.setItem('userEmail', email);
+localStorage.setItem('userName', name);
+ localStorage.setItem('userEmail', email);
 
-// console.log(name);
-// console.log("Email:", email);
+ console.log(name);
+ console.log(email);
 
 //After storing the data or handling it, the input fields are cleared by setting their values to an empty string:
 document.getElementById('name').value = '';
@@ -166,8 +165,8 @@ function nextQuestion() {
 }
 console.log(quizData);
 
-// This is breaking the userform event listener
-// nextQuestionBtn.addEventListener("click", nextQuestion);
+
+nextQuestionBtn.addEventListener("click", nextQuestion);
 
 // // Function to render the current question when the start quiz button is clicked
 // //the loadQuestion function dynamically generates
@@ -175,25 +174,24 @@ console.log(quizData);
 // //map() fn is used to loop over the choices array
 // //and create radio buttons for each choice.
 // // Modify loadQuiz to take an index to load specific question
-// function loadQuiz(questionData) {
-//   // Clear any previous feedback CONTENT
-//   feedbackEl.innerHTML = "";
+ function loadQuiz(questionData) {
+// Clear any previous feedback CONTENT
+ feedbackEl.innerHTML = "";
 //   // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
-//   let questionData = quizData[currentQuestionIndex];
-//   quizContainer.innerHTML = `
-//     <h2>${questionData.question}</h2>
-//     ${questionData.choices
-//       .map(
-//         (choice, index) => `
-//       <div class="form-check">
-//         <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-//         <label for="choice${index}" class="form-check-label">${choice}</label>
-//       </div>
-//     `
-//       )
-//       .join("")}
-//   `;
-// }
+   let questionData = quizData[currentQuestionIndex];
+  quizContainer.innerHTML = `
+    <h2>${questionData.question}</h2>
+     ${questionData.choices
+      .map(
+        (choice, index) => `
+      <div class="form-check">
+               <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
+        <label for="choice${index}" class="form-check-label">${choice}</label>
+     </div>
+     `
+       )
+      .join("")}   `;
+}
 
 nextQuestionBtn.addEventListener("click", nextQuestion);
 // Function to handle end of the quiz

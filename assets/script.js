@@ -5,8 +5,6 @@ const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
-const errorEl = document.getElementById("error");
-const answer = document.getElementById('answer');
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
@@ -41,7 +39,7 @@ let quizData = [
 
 const form = document.getElementById("userForm");
 
-//console.log("form", form);
+console.log("form", form);
 
 ///Add an event listener to handle form submission
 form.addEventListener("submit", function (event) {
@@ -52,17 +50,11 @@ form.addEventListener("submit", function (event) {
   // Get the values from the form inputs
   const name = event.target[0].value;
   const email = event.target[1].value;
-  if (!name && !email) {
-  alert("please enter email and name !");}
-  else if (!email){
-    alert ("please enter email")}
+  if (!name || !email) {
+    alert("please enter email !");
 
-else if(!name){
-  alert ("please enter name");
-}
-  ""
-
-  
+    return;
+  }
 
   // // store the data in localStorage or handle it further
   localStorage.setItem("userName", name);
@@ -81,11 +73,16 @@ function startTimer() {
     timerEl.textContent = timeLeft + " seconds remaining";
     if (timeLeft === 0) {
       clearInterval(timerInterval);
-      alert("Time's up!");
+      showTimeUpModal(); // Show the modal when time runs out
     }
   }, 1000);
-};
+}
 
+function showTimeUpModal() {
+  const timeUpModalEl = document.getElementById("timeUpModal"); // Get the modal by ID
+  const timeUpModal = new bootstrap.Modal(timeUpModalEl); // Initialize the Bootstrap modal
+  timeUpModal.show(); // Show the modal
+}
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
 //the loadQuestion function dynamically generates
@@ -95,7 +92,7 @@ let questionData = quizData[currentQuestionIndex];
 // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
   // Clear any previous feedback CONTENT
-  //feedbackEl.innerHTML = " ";
+  feedbackEl.innerHTML = " ";
   // Get the current question - created a local variable instead of a global variable.
 
   quizContainer.innerHTML = `
@@ -122,9 +119,7 @@ function storeUserAnswer() {
     }
   }
   return userAnswer;
-  
 }
-// Function to handle checking the answer and providing feedback
 
 // function to startQuiz
 startBtn.addEventListener("click", function () {
@@ -132,9 +127,7 @@ startBtn.addEventListener("click", function () {
   // starts a timer for each question
   startTimer();
   // loads the first question
-  loadQuiz(quizData[currentQuestionIndex]);  
-  // display next question button
-  document.getElementById("next-question").style.display = "block";
+  loadQuiz(quizData[currentQuestionIndex]);
 });
 
 // // console log user answer on clicking submit button
@@ -152,10 +145,10 @@ const nextQuestionBtn = document.getElementById("next-question");
 function nextQuestion() {
   const userAnswer = storeUserAnswer();
   if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
-    answer.innerHTML =" right";
+    answer.innerHTML = " right";
     userScore++;
-  }else{
-    answer.innerHTML ="wrong";
+  } else {
+    answer.innerHTML = "wrong";
   }
 
   currentQuestionIndex++;
@@ -178,7 +171,7 @@ nextQuestionBtn.addEventListener("click", nextQuestion);
 // // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
   // Clear any previous feedback CONTENT
-  // feedbackEl.innerHTML = "";
+  feedbackEl.innerHTML = "";
   //   // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
   // let questionData = quizData[currentQuestionIndex];
   quizContainer.innerHTML = `
@@ -200,9 +193,11 @@ nextQuestionBtn.addEventListener("click", nextQuestion);
 function endQuiz() {
   quizContainer.innerHTML = `
     <h2>Quiz Over!</h2>
-    <p>Your final score is: ${userScore}</p> `;
+    <p>Your final score is: ${userScore}</p>
+  `;
   // Hide Next Question button
   nextQuestionBtn.style.display = "none";
+  scoreBoardEl.textContent = `Final Score: ${userScore}`;
 }
 
 function themeSwitch() {

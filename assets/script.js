@@ -54,10 +54,16 @@ form.addEventListener('submit', function (event) {
   const name = event.target[0].value;
   const email = event.target[1].value;
   if (!name && !email) {
-  alert("please enter email and name !");
-  return;
+  alert("please enter email and name !");}
+  else if (!email){
+    alert ("please enter email")}
 
-  };
+else if(!name){
+  alert ("please enter name");
+}
+  
+
+  
 
   // // store the data in localStorage or handle it further
   localStorage.setItem('userName', name);

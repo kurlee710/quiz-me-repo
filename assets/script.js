@@ -69,10 +69,6 @@ form.addEventListener("submit", function (event) {
   document.getElementById("email").value = "";
 });
 
-let onclick = function clickNextBtn() {
-  document.getElementById("next-question");
-};
-
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;
@@ -83,10 +79,15 @@ function startTimer() {
     } else if (currentQuestionIndex === quizData.length) {
       clearInterval(timerInterval);
     } else if (clickNextBtn) {
-      clearInterval(timerInterval);
+      clearTimeout(timerInterval);
     }
   }, 1000);
 }
+
+function clickNextBtn() {
+  clearTimeout(timerInterval);
+}
+document.getElementById("next-question");
 
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked

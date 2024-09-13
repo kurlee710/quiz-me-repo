@@ -64,7 +64,8 @@ function storeUserAnswer() {
 
 // USER INTERACTIONS ------------------------------------------------------
 
-userform.addEventListener("submit", function(event){
+// function to generate error if userform is submitted blank.
+userform.addEventListener("click", function(event){
   event.preventDefault();
 
   const username = document.getElementById("name").value.trim();

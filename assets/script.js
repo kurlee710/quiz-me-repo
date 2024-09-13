@@ -50,8 +50,11 @@ const form = document.getElementById('userForm');
 const name = document.getElementById('name').value;
 const email = document.getElementById('email').value;
 
-// Store the values in variables (or do something else with them)
-console.log("Name:", name);
+// store the data in localStorage or handle it further
+localStorage.setItem('userName', name);
+localStorage.setItem('userEmail', email);
+
+console.log(name);
 console.log("Email:", email);
 
 });
@@ -82,7 +85,7 @@ function loadQuiz(questionData) {
     quizContainer.innerHTML = `
       <h2>${questionData.question}</h2>
      ${questionData.choices
-                 .map(         (choice, index) => `
+                 .map((choice, index) => `
        <div class="form-check">
           <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
            <label for="choice${index}" class="form-check-label">${choice}</label>         </div>

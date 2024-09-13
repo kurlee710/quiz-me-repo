@@ -11,7 +11,7 @@ const answer = document.getElementById('answer');
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
 let currentQuestionIndex = 0;
-
+let userScore = 0;
 // create an array of objects  that stores correct answers
 let quizData = [
   {
@@ -21,19 +21,19 @@ let quizData = [
       "Home Tool Markup Language",
       "Hyperlinks and Text Markup Language",
     ],
-    CorrectAnswer: "Hyper Text Markup Language",
+    correctAnswer: "Hyper Text Markup Language",
   },
 
   {
     question: "Which HTML attribute is used to define inline styles?",
     choices: ["styles", "style", "class"],
-    CorrectAnswer: "styles",
+    correctAnswer: "styles",
   },
   {
     question:
       "In a CSS document, how do you select all p elements inside a div element?",
     choices: ["div + p", ".div p", ".div.p"],
-    CorrectAnswer: ".div p",
+    correctAnswer: ".div p",
   },
 ];
 
@@ -132,7 +132,9 @@ startBtn.addEventListener("click", function () {
   // starts a timer for each question
   startTimer();
   // loads the first question
-  loadQuiz(quizData[currentQuestionIndex]);
+  loadQuiz(quizData[currentQuestionIndex]);  
+  // display next question button
+  document.getElementById("next-question").style.display = "block";
 });
 
 // // console log user answer on clicking submit button
@@ -148,7 +150,6 @@ const nextQuestionBtn = document.getElementById("next-question");
 
 // Function to handle moving to the next question
 function nextQuestion() {
-  
   currentQuestionIndex++;
 
   if (currentQuestionIndex < quizData.length) {
@@ -205,41 +206,22 @@ function calculateUserScore() {
   // counter for user score
   let userScore = 0;
   let userAnswer = storeUserAnswer();
-  let correctAnswer = quizData[currentQuestionIndex].CorrectAnswer;
   // if-else statement that compares the user answer to correct choice and adds to user score
-  if (userAnswer ===correctAnswer) {
-    answer.innerHTML = "Correct!";
+  if (userAnswer === quizData.CorrectAnswer) {
     userScore++;
   } else {
-    answer.innerHTML = "Wrong!";
-    
     userScore--;
   }
-
-
   // store each question score in local storage - json.stringify
   localStorage.setItem("userScore", JSON.stringify(userScore));
-  
   renderScoreBoard();
-
-};
-
-// Submit button click event to check the answer
-
-submitBtn.addEventListener("click", function () {
-  calculateUserScore();
-});
-
-
-
+}
 
 // function for rendering scoreboard
 function renderScoreBoard() {
   let userScore = JSON.parse(localStorage.getItem("userScore"));
   scoreBoardEl.textContent = userScore;
 }
-
-//nextQuestionBtn.style.display = "none";
 
 function themeSwitch() {
   const body = document.body;
@@ -266,4 +248,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("flexSwitchCheckChecked").checked =
       savedTheme === "dark";
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadQuiz(quizData[currentQuestionIndex]);
 });

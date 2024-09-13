@@ -44,14 +44,17 @@ const form = document.getElementById('userForm');
     form.addEventListener('submit', function(event) {
       // Prevent the form from actually submitting
       event.preventDefault();
-    document.getElementById("userForm").submit();
-  }
+   
 
 // Get the values from the form inputs
 const name = document.getElementById('name').value;
 const email = document.getElementById('email').value;
 
+// Store the values in variables (or do something else with them)
+console.log("Name:", name);
+console.log("Email:", email);
 
+});
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;

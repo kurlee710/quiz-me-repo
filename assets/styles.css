@@ -70,7 +70,7 @@ div.form-check.form-switch {
   justify-content: left;
   border-width: 1px;
   margin: 0 auto;
-  background: lightgrey;
+  background: cadetblue;
 }
 
 #score-board {
@@ -80,5 +80,5 @@ div.form-check.form-switch {
   justify-content: left;
   border-width: 1px;
   margin: 0 auto;
-  background: lightgrey;
+  background: cadetblue;
 }

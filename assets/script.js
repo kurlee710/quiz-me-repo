@@ -105,7 +105,7 @@ function loadQuiz(questionData) {
   // Clear any previous feedback CONTENT
   feedbackEl.innerHTML = "";
   // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
-  let questionData = quizData[currentQuestionIndex];
+  // let questionData = quizData[currentQuestionIndex];
   quizContainer.innerHTML = `
     <h2>${questionData.question}</h2>
     ${questionData.choices
@@ -157,26 +157,29 @@ function renderScoreBoard() {
   scoreBoardEl.textContent = userScore;
 }
 
-const html = document.getElementById("htmlPage");
-const checkbox = document.getElementById("checkbox");
-checkbox.addEventListener("change", () => {
-  if (checkbox.checked) {
-    html.setAttribute("data-bs-theme", "dark");
+function themeSwitch() {
+  const body = document.body;
+  const currentTheme = body.getAttribute("data-bs-theme");
+
+  if (currentTheme === "light") {
+    body.setAttribute("data-bs-theme", "dark");
+    localStorage.setItem("theme", "dark"); // Store the theme in localStorage
   } else {
-    html.setAttribute("data-bs-theme", "light");
+    body.setAttribute("data-bs-theme", "light");
+    localStorage.setItem("theme", "light");
+  }
+}
+
+document
+  .getElementById("flexSwitchCheckChecked")
+  .addEventListener("click", themeSwitch);
+
+// On page load, check for saved theme in localStorage
+document.addEventListener("DOMContentLoaded", function () {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.body.setAttribute("data-bs-theme", savedTheme);
+    document.getElementById("flexSwitchCheckChecked").checked =
+      savedTheme === "dark";
   }
 });
-function themeSwitch() {
-  var element = document.body;
-  element.dataset.bsTheme =
-    element.dataset.bsTheme == "light" ? "dark" : "light";
-}
-function stepFunction(event) {
-  debugger;
-  var element = document.getElementsByClassName("collapse");
-  for (var i = 0; i < element.length; i++) {
-    if (element[i] !== event.target.ariaControls) {
-      element[i].classList.remove("show");
-    }
-  }
-}

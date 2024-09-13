@@ -130,6 +130,8 @@ startBtn.addEventListener("click", function () {
   startTimer();
   // loads the first question
   loadQuiz(quizData[currentQuestionIndex]);  
+  // display next question button
+  document.getElementById("next-question").style.display = "block";
 });
 
 // // console log user answer on clicking submit button

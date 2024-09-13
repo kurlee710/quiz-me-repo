@@ -31,9 +31,6 @@ div.card-header.question {
   border-radius: 15px;
   background-color: rgb(29 120 211 / 32%);
 }
-.homepage {
-  background-color: #e97a7a;
-}
 
 button.submit-btn {
   border-radius: 10px;
@@ -54,4 +51,13 @@ div.card.container {
 .form-container {
   text-align: center;
   padding: 10px;
+}
+
+div.card.footer {
+  background-color: #c86868;
+  border-radius: 20px;
+}
+
+div.form-check.form-switch {
+  text-align: left;
 }

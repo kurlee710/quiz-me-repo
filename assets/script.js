@@ -7,7 +7,7 @@ const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
 
 // DATA -------------------------------------------------------------------
-let timeLeft = 3;
+let timeLeft = 30;
 let currentQuestionIndex = 0;
 let userScore = 0;
 // create an array of objects  that stores correct answers
@@ -145,10 +145,10 @@ const nextQuestionBtn = document.getElementById("next-question");
 function nextQuestion() {
   const userAnswer = storeUserAnswer();
   if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
-    answer.innerHTML =" right";
+    answer.innerHTML = " right";
     userScore++;
-  }else{
-    answer.innerHTML ="wrong";
+  } else {
+    answer.innerHTML = "wrong";
   }
 
   currentQuestionIndex++;

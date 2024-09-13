@@ -40,7 +40,10 @@ let quizData = [
 const form = document.getElementById('userForm');
 function submitForm(e) {
    
-
+    // Add an event listener to handle form submission
+    form.addEventListener('submit', function(event) {
+      // Prevent the form from actually submitting
+      event.preventDefault();
     document.getElementById("userForm").submit();
   }
 

@@ -6,6 +6,7 @@ const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
 const errorEl = document.getElementById("error");
+const nextBtn = document.getElementById("next-question");
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 10;
@@ -78,16 +79,17 @@ function startTimer() {
       alert("Time's up!");
     } else if (currentQuestionIndex === quizData.length) {
       clearInterval(timerInterval);
-    } else if (clickNextBtn) {
-      clearTimeout(timerInterval);
     }
   }, 1000);
 }
 
 function clickNextBtn() {
-  clearTimeout(timerInterval);
+  let timerInterval = setInterval(function () {
+    nextBtn.addEventListener("click", function () {
+      clearTimeout(timerInterval);
+    });
+  });
 }
-document.getElementById("next-question");
 
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked

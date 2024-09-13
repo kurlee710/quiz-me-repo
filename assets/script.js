@@ -8,7 +8,7 @@ const timerEl = document.querySelector(".timer");
 const errorEl = document.getElementById("error");
 
 // DATA -------------------------------------------------------------------
-let timeLeft = 30;
+let timeLeft = 10;
 let currentQuestionIndex = 0;
 
 // create an array of objects  that stores correct answers
@@ -68,6 +68,7 @@ form.addEventListener("submit", function (event) {
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
 });
+
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;
@@ -75,9 +76,12 @@ function startTimer() {
     if (timeLeft === 0) {
       clearInterval(timerInterval);
       alert("Time's up!");
+    } else if (currentQuestionIndex === quizData.length) {
+      clearInterval(timerInterval);
     }
   }, 1000);
 }
+
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
 //the loadQuestion function dynamically generates

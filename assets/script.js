@@ -5,10 +5,9 @@ const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
-const errorEl = document.getElementById("error");
 
 // DATA -------------------------------------------------------------------
-let timeLeft = 30;
+let timeLeft = 3;
 let currentQuestionIndex = 0;
 let userScore = 0;
 // create an array of objects  that stores correct answers
@@ -74,9 +73,15 @@ function startTimer() {
     timerEl.textContent = timeLeft + " seconds remaining";
     if (timeLeft === 0) {
       clearInterval(timerInterval);
-      alert("Time's up!");
+      showTimeUpModal(); // Show the modal when time runs out
     }
   }, 1000);
+}
+
+function showTimeUpModal() {
+  const timeUpModalEl = document.getElementById("timeUpModal"); // Get the modal by ID
+  const timeUpModal = new bootstrap.Modal(timeUpModalEl); // Initialize the Bootstrap modal
+  timeUpModal.show(); // Show the modal
 }
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked

@@ -6,6 +6,7 @@ const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
 const errorEl = document.getElementById("error");
+const answer = document.getElementById('answer');
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
@@ -94,7 +95,7 @@ let questionData = quizData[currentQuestionIndex];
 // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
   // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = " ";
+  //feedbackEl.innerHTML = " ";
   // Get the current question - created a local variable instead of a global variable.
 
   quizContainer.innerHTML = `
@@ -168,7 +169,7 @@ nextQuestionBtn.addEventListener("click", nextQuestion);
 // // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
   // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = "";
+  // feedbackEl.innerHTML = "";
   //   // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
   // let questionData = quizData[currentQuestionIndex];
   quizContainer.innerHTML = `
@@ -204,24 +205,41 @@ function calculateUserScore() {
   // counter for user score
   let userScore = 0;
   let userAnswer = storeUserAnswer();
+  let correctAnswer = quizData[currentQuestionIndex].CorrectAnswer;
   // if-else statement that compares the user answer to correct choice and adds to user score
-  if (userAnswer === quizData.CorrectAnswer) {
-    feedbackEl.innerHTML = "Correct!";
+  if (userAnswer ===correctAnswer) {
+    answer.innerHTML = "Correct!";
     userScore++;
   } else {
-    feedbackEl.innerHTML = "Wrong!";
+    answer.innerHTML = "Wrong!";
+    
     userScore--;
   }
+
+
   // store each question score in local storage - json.stringify
   localStorage.setItem("userScore", JSON.stringify(userScore));
+  
   renderScoreBoard();
-}
+
+};
+
+// Submit button click event to check the answer
+
+submitBtn.addEventListener("click", function () {
+  calculateUserScore();
+});
+
+
+
 
 // function for rendering scoreboard
 function renderScoreBoard() {
   let userScore = JSON.parse(localStorage.getItem("userScore"));
   scoreBoardEl.textContent = userScore;
 }
+
+//nextQuestionBtn.style.display = "none";
 
 function themeSwitch() {
   const body = document.body;

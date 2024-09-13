@@ -7,7 +7,6 @@ const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
 const errorEl = document.getElementById("error");
 
-
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
 let currentQuestionIndex = 0;
@@ -37,17 +36,16 @@ let quizData = [
   },
 ];
 
-
 // FUNCTIONS -----------------------------------------------
 
-const form = document.getElementById('userForm');
+const form = document.getElementById("userForm");
 
-console.log('form', form);
+console.log("form", form);
 
 ///Add an event listener to handle form submission
-form.addEventListener('submit', function (event) {
+form.addEventListener("submit", function (event) {
   console.log(event);
- //Prevent the form from actually submitting
+  //Prevent the form from actually submitting
   event.preventDefault();
 
   // Get the values from the form inputs
@@ -66,19 +64,15 @@ else if(!name){
   
 
   // // store the data in localStorage or handle it further
-  localStorage.setItem('userName', name);
-  localStorage.setItem('userEmail', email);
-
+  localStorage.setItem("userName", name);
+  localStorage.setItem("userEmail", email);
 
   console.log(name);
   console.log(email);
 
   //After storing the data or handling it, the input fields are cleared by setting their values to an empty string:
-  document.getElementById('name').value = '';
-  document.getElementById('email').value = '';
-
-
-
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
 });
 function startTimer() {
   let timerInterval = setInterval(function () {
@@ -99,21 +93,21 @@ let questionData = quizData[currentQuestionIndex];
 //and create radio buttons for each choice.
 // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
-
   // Clear any previous feedback CONTENT
   feedbackEl.innerHTML = " ";
   // Get the current question - created a local variable instead of a global variable.
 
-
   quizContainer.innerHTML = `
       <h2>${questionData.question}</h2>
      ${questionData.choices
-      .map((choice, index) => `
+       .map(
+         (choice, index) => `
        <div class="form-check">
           <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
            <label for="choice${index}" class="form-check-label">${choice}</label>         </div>
        `
-      ).join("")}
+       )
+       .join("")}
     `;
 }
 
@@ -128,7 +122,6 @@ function storeUserAnswer() {
   }
   return userAnswer;
 }
-
 
 // function to startQuiz
 startBtn.addEventListener("click", function () {
@@ -162,7 +155,6 @@ function nextQuestion() {
 }
 console.log(quizData);
 
-
 nextQuestionBtn.addEventListener("click", nextQuestion);
 
 // // Function to render the current question when the start quiz button is clicked
@@ -179,15 +171,15 @@ function loadQuiz(questionData) {
   quizContainer.innerHTML = `
     <h2>${questionData.question}</h2>
      ${questionData.choices
-      .map(
-        (choice, index) => `
+       .map(
+         (choice, index) => `
       <div class="form-check">
                <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
         <label for="choice${index}" class="form-check-label">${choice}</label>
      </div>
      `
-      )
-      .join("")}   `;
+       )
+       .join("")}   `;
 }
 
 nextQuestionBtn.addEventListener("click", nextQuestion);
@@ -226,3 +218,30 @@ function renderScoreBoard() {
   let userScore = JSON.parse(localStorage.getItem("userScore"));
   scoreBoardEl.textContent = userScore;
 }
+
+function themeSwitch() {
+  const body = document.body;
+  const currentTheme = body.getAttribute("data-bs-theme");
+
+  if (currentTheme === "light") {
+    body.setAttribute("data-bs-theme", "dark");
+    localStorage.setItem("theme", "dark"); // Store the theme in localStorage
+  } else {
+    body.setAttribute("data-bs-theme", "light");
+    localStorage.setItem("theme", "light");
+  }
+}
+
+document
+  .getElementById("flexSwitchCheckChecked")
+  .addEventListener("click", themeSwitch);
+
+// On page load, check for saved theme in localStorage
+document.addEventListener("DOMContentLoaded", function () {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.body.setAttribute("data-bs-theme", savedTheme);
+    document.getElementById("flexSwitchCheckChecked").checked =
+      savedTheme === "dark";
+  }
+});

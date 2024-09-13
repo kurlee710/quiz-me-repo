@@ -5,6 +5,7 @@ const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
+const userform = document.querySelector(".form-container");
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
@@ -61,6 +62,22 @@ function storeUserAnswer() {
 }
 
 // USER INTERACTIONS ------------------------------------------------------
+
+userform.addEventListener("submit", function(event){
+  event.preventDefault();
+
+  const username = document.getElementById("name").value.trim();
+  const useremail = document.getElementById("email").value.trim();
+  const errorEl = document.getElementById("error");
+
+  if (!username || !useremail) {
+    errorEl.textContent = "Please enter your name and email.";
+    return;
+  }
+
+  errorEl.textContent = "";
+});
+
 // function to startQuiz
 startBtn.addEventListener("click", function () {
   //   console.log("start quiz button clicked");

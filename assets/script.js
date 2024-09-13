@@ -53,13 +53,11 @@ form.addEventListener('submit', function (event) {
   // Get the values from the form inputs
   const name = event.target[0].value;
   const email = event.target[1].value;
-  if (!name || !email) {
-  alert("please enter email !");
+  if (!name && !email) {
+  alert("please enter email and name !");
+  return;
 
-  
-    return;
-
-  }
+  };
 
   // // store the data in localStorage or handle it further
   localStorage.setItem('userName', name);
@@ -85,7 +83,8 @@ function startTimer() {
       alert("Time's up!");
     }
   }, 1000);
-}
+};
+
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
 //the loadQuestion function dynamically generates

@@ -46,19 +46,17 @@ console.log('form', form);
 
 ///Add an event listener to handle form submission
 form.addEventListener('submit', function (event) {
+  console.log(event);
  //Prevent the form from actually submitting
   event.preventDefault();
 
   // Get the values from the form inputs
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
+  const name = event.target[0].value;
+  const email = event.target[1].value;
   if (!name || !email) {
-    errorEl.textContent = "Please enter your name and email.";
-   
+  alert("please enter email !");
 
-
-
-  errorEl.textContent = "";
+  
     return;
 
   }

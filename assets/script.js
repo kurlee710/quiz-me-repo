@@ -39,25 +39,27 @@ let quizData = [
 
 
 // FUNCTIONS -----------------------------------------------
-const form = document.getElementById('userForm');
-    // Add an event listener to handle form submission
-    form.addEventListener('submit', function(event) {
-      // Prevent the form from actually submitting
-      event.preventDefault();
+
+// This is breaking the userform event listener
+// const form = document.getElementById('userForm');
+//     // Add an event listener to handle form submission
+//     form.addEventListener('submit', function(event) {
+//       // Prevent the form from actually submitting
+//       event.preventDefault();
    
 
-// Get the values from the form inputs
-const name = document.getElementById('name').value;
-const email = document.getElementById('email').value;
+// // Get the values from the form inputs
+// const name = document.getElementById('name').value;
+// const email = document.getElementById('email').value;
 
-// store the data in localStorage or handle it further
-localStorage.setItem('userName', name);
-localStorage.setItem('userEmail', email);
+// // store the data in localStorage or handle it further
+// localStorage.setItem('userName', name);
+// localStorage.setItem('userEmail', email);
 
-console.log(name);
-console.log("Email:", email);
+// console.log(name);
+// console.log("Email:", email);
 
-});
+// });
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;
@@ -158,7 +160,7 @@ function nextQuestion() {
 }
 console.log(quizData);
 
-
+// This is breaking the userform event listener
 // nextQuestionBtn.addEventListener("click", nextQuestion);
 
 // // Function to render the current question when the start quiz button is clicked

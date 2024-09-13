@@ -53,16 +53,13 @@ form.addEventListener("submit", function (event) {
   const name = event.target[0].value;
   const email = event.target[1].value;
   if (!name && !email) {
-  alert("please enter email and name !");}
-  else if (!email){
-    alert ("please enter email")}
-
-else if(!name){
-  alert ("please enter name");
-}
-  ""
-
-  
+    alert("please enter email and name !");
+  } else if (!email) {
+    alert("please enter email");
+  } else if (!name) {
+    alert("please enter name");
+  }
+  ("");
 
   // // store the data in localStorage or handle it further
   localStorage.setItem("userName", name);
@@ -88,7 +85,6 @@ function startTimer() {
     }
   }, 1000);
 }
-};
 
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
@@ -134,7 +130,7 @@ startBtn.addEventListener("click", function () {
   // starts a timer for each question
   startTimer();
   // loads the first question
-  loadQuiz(quizData[currentQuestionIndex]);  
+  loadQuiz(quizData[currentQuestionIndex]);
   // display next question button
   document.getElementById("next-question").style.display = "block";
 });

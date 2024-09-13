@@ -43,7 +43,7 @@ function submitForm() {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
 
-    // Store the values in local storage
+    //Store the values in local storage
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
 
@@ -54,7 +54,7 @@ function submitForm() {
     // Submit the form
     document.getElementById("userForm").submit();
 }
-</script>
+
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;

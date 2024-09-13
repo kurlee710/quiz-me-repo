@@ -1,8 +1,15 @@
 // DEPENDENCIES ------------------------------------------------------------
+const startBtn = document.getElementById("start-quiz");
+const submitBtn = document.getElementById("submit-btn");
+const quizContainer = document.getElementById("quiz-container");
+const feedbackEl = document.getElementById("feedback");
+const scoreBoardEl = document.getElementById("score-board");
+const timerEl = document.querySelector(".timer");
+
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
-let userScore = 0;
 let currentQuestionIndex = 0;
+
 // create an array of objects  that stores correct answers
 let quizData = [
   {
@@ -27,16 +34,6 @@ let quizData = [
     CorrectAnswer: "2.div p",
   },
 ];
-// start quiz button to kick off quiz function
-const startBtn = document.getElementById("start-quiz");
-const questionData = quizData[currentQuestionIndex];
-const quizContainer = document.getElementById("quiz-container");
-const feedbackEl = document.getElementById("feedback");
-const scoreBoardEl = document.getElementById("score-board");
-const timerEl = document.querySelector(".timer");
-
-// creating event listeners for loading a quiz and handling the next question.
-//document.addEventListener('DOMContentLoaded', loadQuiz);
 
 // FUNCTIONS -----------------------------------------------
 
@@ -51,59 +48,35 @@ function startTimer() {
   }, 1000);
 }
 
+// function that stores user answers
+function storeUserAnswer() {
+  let userAnswer = "";
+  let choices = document.getElementsByName("answer");
+  for (let i = 0; i < choices.length; i++) {
+    if (choices[i].checked) {
+      userAnswer = choices[i].value;
+    }
+  }
+  return userAnswer;
+}
+
 // USER INTERACTIONS ------------------------------------------------------
 // function to startQuiz
 startBtn.addEventListener("click", function () {
-  console.log("start quiz button clicked");
+  //   console.log("start quiz button clicked");
+  // starts a timer for each question
   startTimer();
-  loadQuiz(quizData[0]);
+  // loads the first question
+  loadQuiz(quizData[currentQuestionIndex]);
 });
 
-document.addEventListener("DOMContentLoaded", loadQuiz);
-
-// Function to render the current question
-// when the start quiz button os clicked
-
-function loadQuiz() {
-  // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = "";
-
-  quizContainer.innerHTML = `
-      <h2>${questionData.question}</h2>
-      ${questionData.choices
-        .map(
-          (choice, index) => `
-        <div class="form-check">
-          <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-          <label for="choice${index}" class="form-check-label">${choice}</label>
-        </div>
-      `
-        )
-        .join("")}
-    `;
-}
-
-//the renderQuestion function dynamically generates
-//the HTML for each question and its corresponding choices.
-//map() fn is used to loop over the choices array
-//and create radio buttons for each choice.
-
-//document.addEventListener('DOMContentLoaded', renderQuestion);
+// console log user answer on clicking submit button
+submitBtn.addEventListener("click", function () {
+  console.log(userAnswer);
+});
 
 // INITIALIZATION ---------------------------------------------------------
-
-//   // counter for user score
-//   for (let i = 0; i < questions.choices.length; i++) {
-//     userAnswer = questions.choices[i];
-//   }
-//   // if-else statement that compares the user answer to correct choice and adds to user score
-//   if (userAnswer === quizData.correctChoice) {
-//     userScore++;
-//   } else {
-//     userScore--;
-//   }
-//   // store each question score in local storage - json.stringify - part of if-else statement
-//   localStorage.setItem("userScore", JSON.stringify(userScore));
+storeUserAnswer();
 
 // Create a Next Question button
 const nextQuestionBtn = document.getElementById("next-question");
@@ -122,10 +95,17 @@ console.log(quizData);
 
 nextQuestionBtn.addEventListener("click", nextQuestion);
 
+// Function to render the current question when the start quiz button is clicked
+//the loadQuestion function dynamically generates
+//the HTML for each question and its corresponding choices.
+//map() fn is used to loop over the choices array
+//and create radio buttons for each choice.
 // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
+  // Clear any previous feedback CONTENT
   feedbackEl.innerHTML = "";
-
+  // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
+  let questionData = quizData[currentQuestionIndex];
   quizContainer.innerHTML = `
     <h2>${questionData.question}</h2>
     ${questionData.choices
@@ -154,3 +134,25 @@ function endQuiz() {
 document.addEventListener("DOMContentLoaded", () => {
   loadQuiz(quizData[currentQuestionIndex]);
 });
+
+// function for storing user score
+function calculateUserScore() {
+  // counter for user score
+  let userScore = 0;
+  let userAnswer = storeUserAnswer();
+  // if-else statement that compares the user answer to correct choice and adds to user score
+  if (userAnswer === quizData.CorrectAnswer) {
+    userScore++;
+  } else {
+    userScore--;
+  }
+  // store each question score in local storage - json.stringify
+  localStorage.setItem("userScore", JSON.stringify(userScore));
+  renderScoreBoard();
+}
+
+// function for rendering scoreboard
+function renderScoreBoard() {
+  let userScore = JSON.parse(localStorage.getItem("userScore"));
+  scoreBoardEl.textContent = userScore;
+}

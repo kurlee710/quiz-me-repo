@@ -15,23 +15,23 @@ let quizData = [
   {
     question: "what does HTML stand for?",
     choices: [
-      "1.Hyper Text Markup Language",
-      "2.Home Tool Markup Language",
-      "3.Hyperlinks and Text Markup Language",
+      "Hyper Text Markup Language",
+      "Home Tool Markup Language",
+      "Hyperlinks and Text Markup Language",
     ],
     CorrectAnswer: "Hyper Text Markup Language",
   },
 
   {
     question: "Which HTML attribute is used to define inline styles?",
-    choices: ["1.styles", "2.style", "3.class"],
-    CorrectAnswer: "1.styles",
+    choices: ["styles", "style", "class"],
+    CorrectAnswer: "styles",
   },
   {
     question:
       "In a CSS document, how do you select all p elements inside a div element?",
-    choices: ["1.div + p", "2. div p", "3.div.p"],
-    CorrectAnswer: "2.div p",
+    choices: ["div + p", ".div p", ".div.p"],
+    CorrectAnswer: ".div p",
   },
 ];
 
@@ -48,6 +48,33 @@ function startTimer() {
   }, 1000);
 }
 
+// Function to render the current question when the start quiz button is clicked
+//the loadQuestion function dynamically generates
+//the HTML for each question and its corresponding choices.
+//map() fn is used to loop over the choices array
+//and create radio buttons for each choice.
+// Modify loadQuiz to take an index to load specific question
+function loadQuiz(questionData) {
+    // Clear any previous feedback CONTENT
+    feedbackEl.innerHTML = "";
+    // Get the current question - created a local variable instead of a global variable.
+    
+    let questionData = quizData[currentQuestionIndex];
+    quizContainer.innerHTML = `
+      <h2>${questionData.question}</h2>
+      ${questionData.choices
+        .map(
+          (choice, index) => `
+        <div class="form-check">
+          <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
+          <label for="choice${index}" class="form-check-label">${choice}</label>
+        </div>
+      `
+        )
+        .join("")}
+    `;
+  }
+  
 // function that stores user answers
 function storeUserAnswer() {
   let userAnswer = "";
@@ -93,34 +120,8 @@ function nextQuestion() {
 }
 console.log(quizData);
 
+
 nextQuestionBtn.addEventListener("click", nextQuestion);
-
-// Function to render the current question when the start quiz button is clicked
-//the loadQuestion function dynamically generates
-//the HTML for each question and its corresponding choices.
-//map() fn is used to loop over the choices array
-//and create radio buttons for each choice.
-// Modify loadQuiz to take an index to load specific question
-function loadQuiz(questionData) {
-  // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = "";
-  // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
-  let questionData = quizData[currentQuestionIndex];
-  quizContainer.innerHTML = `
-    <h2>${questionData.question}</h2>
-    ${questionData.choices
-      .map(
-        (choice, index) => `
-      <div class="form-check">
-        <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-        <label for="choice${index}" class="form-check-label">${choice}</label>
-      </div>
-    `
-      )
-      .join("")}
-  `;
-}
-
 // Function to handle end of the quiz
 function endQuiz() {
   quizContainer.innerHTML = `

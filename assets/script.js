@@ -78,6 +78,8 @@ function startTimer() {
       alert("Time's up!");
     } else if (currentQuestionIndex === quizData.length) {
       clearInterval(timerInterval);
+    } else if (document.getElementById("next-question").clicked) {
+      clearInterval(timerInterval);
     }
   }, 1000);
 }

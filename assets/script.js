@@ -83,13 +83,6 @@ function startTimer() {
   }, 1000);
 }
 
-// function clickNextBtn() {
-//   let timerInterval = setInterval(function () {
-//     nextBtn.addEventListener("click", function () {
-//       clearInterval(timerInterval);
-//     });
-//   });
-// }
 
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked

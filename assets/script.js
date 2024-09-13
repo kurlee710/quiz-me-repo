@@ -6,6 +6,7 @@ const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
 const errorEl = document.getElementById("error");
+const answer = document.getElementById('answer');
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
@@ -40,7 +41,7 @@ let quizData = [
 
 const form = document.getElementById("userForm");
 
-console.log("form", form);
+//console.log("form", form);
 
 ///Add an event listener to handle form submission
 form.addEventListener("submit", function (event) {
@@ -94,7 +95,7 @@ let questionData = quizData[currentQuestionIndex];
 // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
   // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = " ";
+  //feedbackEl.innerHTML = " ";
   // Get the current question - created a local variable instead of a global variable.
 
   quizContainer.innerHTML = `
@@ -121,7 +122,9 @@ function storeUserAnswer() {
     }
   }
   return userAnswer;
+  
 }
+// Function to handle checking the answer and providing feedback
 
 // function to startQuiz
 startBtn.addEventListener("click", function () {
@@ -172,7 +175,7 @@ nextQuestionBtn.addEventListener("click", nextQuestion);
 // // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
   // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = "";
+  // feedbackEl.innerHTML = "";
   //   // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
   // let questionData = quizData[currentQuestionIndex];
   quizContainer.innerHTML = `
@@ -194,8 +197,7 @@ nextQuestionBtn.addEventListener("click", nextQuestion);
 function endQuiz() {
   quizContainer.innerHTML = `
     <h2>Quiz Over!</h2>
-    <p>Your final score is: ${userScore}</p>
-  `;
+    <p>Your final score is: ${userScore}</p> `;
   // Hide Next Question button
   nextQuestionBtn.style.display = "none";
 }

@@ -61,3 +61,13 @@ div.card.footer {
 div.form-check.form-switch {
   text-align: left;
 }
+
+#feedback {
+  border: 1px solid black;
+  width: 100%
+}
+
+#score-board {
+  border: 1px solid black;
+  width: 100%
+}

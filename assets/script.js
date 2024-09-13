@@ -55,6 +55,11 @@ localStorage.setItem('userEmail', email);
 console.log(name);
 console.log("Email:", email);
 
+//After storing the data or handling it, the input fields are cleared by setting their values to an empty string:
+document.getElementById('name').value = '';
+document.getElementById('email').value = '';
+
+
 });
 function startTimer() {
   let timerInterval = setInterval(function () {

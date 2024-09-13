@@ -40,7 +40,7 @@ let quizData = [
 
 const form = document.getElementById("userForm");
 
-console.log("form", form);
+//console.log("form", form);
 
 ///Add an event listener to handle form submission
 form.addEventListener("submit", function (event) {
@@ -121,7 +121,9 @@ function storeUserAnswer() {
     }
   }
   return userAnswer;
+  
 }
+// Function to handle checking the answer and providing feedback
 
 // function to startQuiz
 startBtn.addEventListener("click", function () {
@@ -145,6 +147,7 @@ const nextQuestionBtn = document.getElementById("next-question");
 
 // Function to handle moving to the next question
 function nextQuestion() {
+  
   currentQuestionIndex++;
 
   if (currentQuestionIndex < quizData.length) {
@@ -187,8 +190,7 @@ nextQuestionBtn.addEventListener("click", nextQuestion);
 function endQuiz() {
   quizContainer.innerHTML = `
     <h2>Quiz Over!</h2>
-    <p>Your final score is: ${userScore}</p>
-  `;
+    <p>Your final score is: ${userScore}</p> `;
   // Hide Next Question button
   nextQuestionBtn.style.display = "none";
 }
@@ -204,8 +206,10 @@ function calculateUserScore() {
   let userAnswer = storeUserAnswer();
   // if-else statement that compares the user answer to correct choice and adds to user score
   if (userAnswer === quizData.CorrectAnswer) {
+    feedbackEl.innerHTML = "Correct!";
     userScore++;
   } else {
+    feedbackEl.innerHTML = "Wrong!";
     userScore--;
   }
   // store each question score in local storage - json.stringify

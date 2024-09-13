@@ -150,6 +150,11 @@ const nextQuestionBtn = document.getElementById("next-question");
 
 // Function to handle moving to the next question
 function nextQuestion() {
+  const userAnswer = storeUserAnswer();
+  if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
+    userScore++;
+  }
+
   currentQuestionIndex++;
 
   if (currentQuestionIndex < quizData.length) {
@@ -195,32 +200,6 @@ function endQuiz() {
     <p>Your final score is: ${userScore}</p> `;
   // Hide Next Question button
   nextQuestionBtn.style.display = "none";
-}
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   loadQuiz(quizData[currentQuestionIndex]);
-// });
-
-// function for storing user score
-function calculateUserScore() {
-  // counter for user score
-  let userScore = 0;
-  let userAnswer = storeUserAnswer();
-  // if-else statement that compares the user answer to correct choice and adds to user score
-  if (userAnswer === quizData.CorrectAnswer) {
-    userScore++;
-  } else {
-    userScore--;
-  }
-  // store each question score in local storage - json.stringify
-  localStorage.setItem("userScore", JSON.stringify(userScore));
-  renderScoreBoard();
-}
-
-// function for rendering scoreboard
-function renderScoreBoard() {
-  let userScore = JSON.parse(localStorage.getItem("userScore"));
-  scoreBoardEl.textContent = userScore;
 }
 
 function themeSwitch() {

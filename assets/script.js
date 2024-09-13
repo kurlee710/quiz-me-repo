@@ -83,7 +83,6 @@ function startTimer() {
   }, 1000);
 }
 
-
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
 //the loadQuestion function dynamically generates
@@ -155,9 +154,10 @@ function nextQuestion() {
 }
 console.log(quizData);
 
-nextQuestionBtn.addEventListener("click", nextQuestion) {
+nextQuestionBtn.addEventListener("click", function () {
   startTimer();
-};
+  nextQuestion();
+});
 
 // // Function to render the current question when the start quiz button is clicked
 // //the loadQuestion function dynamically generates

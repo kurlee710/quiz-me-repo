@@ -61,7 +61,7 @@ form.addEventListener('submit', function (event) {
 else if(!name){
   alert ("please enter name");
 }
-  
+  ""
 
   
 

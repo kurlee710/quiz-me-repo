@@ -82,3 +82,7 @@ div.form-check.form-switch {
   margin: 0 auto;
   background: cadetblue;
 }
+
+#next-question {
+  display: none;
+}

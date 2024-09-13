@@ -129,7 +129,9 @@ startBtn.addEventListener("click", function () {
   // starts a timer for each question
   startTimer();
   // loads the first question
-  loadQuiz(quizData[currentQuestionIndex]);
+  loadQuiz(quizData[currentQuestionIndex]);  
+  // display next question button
+  document.getElementById("next-question").style.display = "block";
 });
 
 // // console log user answer on clicking submit button

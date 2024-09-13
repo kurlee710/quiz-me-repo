@@ -5,7 +5,8 @@ const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
-const userform = document.querySelector(".form-container");
+const userform = document.querySelector(".userform");
+const errorEl = document.getElementById("error");
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;

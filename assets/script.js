@@ -35,8 +35,26 @@ let quizData = [
   },
 ];
 
+
 // FUNCTIONS -----------------------------------------------
 
+function submitForm() {
+    // Get the values from the form inputs
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    // Store the values in local storage
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+
+    // Optional: log the stored values for testing purposes
+    console.log("Stored Name:", localStorage.getItem("name"));
+    console.log("Stored Email:", localStorage.getItem("email"));
+
+    // Submit the form
+    document.getElementById("userForm").submit();
+}
+</script>
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;
@@ -55,11 +73,12 @@ function startTimer() {
 //and create radio buttons for each choice.
 // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
+    let questionData = quizData[currentQuestionIndex];
     // Clear any previous feedback CONTENT
-    feedbackEl.innerHTML = "";
+    feedbackEl.innerHTML = " ";
     // Get the current question - created a local variable instead of a global variable.
     
-    let questionData = quizData[currentQuestionIndex];
+   
     quizContainer.innerHTML = `
       <h2>${questionData.question}</h2>
       ${questionData.choices
@@ -97,10 +116,10 @@ startBtn.addEventListener("click", function () {
   loadQuiz(quizData[currentQuestionIndex]);
 });
 
-// console log user answer on clicking submit button
-submitBtn.addEventListener("click", function () {
-  console.log(userAnswer);
-});
+// // console log user answer on clicking submit button
+// submitBtn.addEventListener("click", function () {
+//   console.log(userAnswer);
+// });
 
 // INITIALIZATION ---------------------------------------------------------
 storeUserAnswer();
@@ -132,9 +151,9 @@ function endQuiz() {
   nextQuestionBtn.style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadQuiz(quizData[currentQuestionIndex]);
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   loadQuiz(quizData[currentQuestionIndex]);
+// });
 
 // function for storing user score
 function calculateUserScore() {

@@ -13,7 +13,7 @@ let userScore = 0;
 // create an array of objects  that stores correct answers
 let quizData = [
   {
-    question: "what does HTML stand for?",
+    question: "What does HTML stand for?",
     choices: [
       "Hyper Text Markup Language",
       "Home Tool Markup Language",

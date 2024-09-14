@@ -77,6 +77,7 @@ div.form-check.form-switch {
   border-width: 1px;
   margin: 0 auto;
   background-color: #e49191;
+  border-radius: 20px;
 }
 
 #score-board {
@@ -87,6 +88,7 @@ div.form-check.form-switch {
   border-width: 1px;
   margin: 0 auto;
   background-color: #e49191;
+  border-radius: 20px;
 }
 
 [data-bs-theme="dark"] #feedback {

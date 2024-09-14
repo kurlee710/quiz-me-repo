@@ -186,6 +186,7 @@ function endQuiz() {
     <p>Your final score is: ${userScore}</p>
   `;
   // Hide Next Question button
+  nextQuestionBtn.style.display = "none";
   //nextQuestionBtn.style.display = "none";
   scoreBoardEl.textContent = `Final Score: ${userScore}`;
 }

@@ -69,10 +69,6 @@ div.form-check.form-switch {
   text-align: left;
 }
 
-.timer {
-  display: none;
-}
-
 #feedback {
   border: 1px solid black;
   width: 47%;

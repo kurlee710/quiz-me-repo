@@ -149,6 +149,8 @@ startBtn.addEventListener("click", function () {
   startTimer();
   // loads the first question
   loadQuiz(quizData[currentQuestionIndex]);
+  // display question when start-quiz button is hit
+  document.getElementById("quiz-container").style.display = "block";
   // display next question button
   document.getElementById("next-question").style.display = "block";
 });

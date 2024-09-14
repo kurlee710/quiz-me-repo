@@ -70,7 +70,6 @@ div.form-check.form-switch {
 }
 
 #feedback {
-  border: 1px solid black;
   width: 10%;
   display: flex;
   justify-content: center;

@@ -173,6 +173,7 @@ function nextQuestion() {
     feedbackEl.innerHTML = "Correct";
     feedbackEl.style.color = "green";
     userScore++;
+    scoreBoardEl.textContent = `Score: ${userScore}`;
   } else {
     feedbackEl.innerHTML = "Incorrect";
     feedbackEl.style.color = "red";

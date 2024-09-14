@@ -157,10 +157,10 @@ const nextQuestionBtn = document.getElementById("next-question");
 function nextQuestion() {
   const userAnswer = storeUserAnswer();
   if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
-    feedbackEl.innerHTML = " right";
+    feedbackEl.innerHTML = "Correcrt";
     userScore++;
   } else {
-    feedbackEl.innerHTML = "wrong";
+    feedbackEl.innerHTML = "Incorrect";
   }
 
   currentQuestionIndex++;

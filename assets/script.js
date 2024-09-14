@@ -5,7 +5,7 @@ const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
-const answer =document.getElementById('answer');
+const answer = document.getElementById("answer");
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
@@ -53,16 +53,12 @@ form.addEventListener("submit", function (event) {
   const email = event.target[1].value;
   if (!name && !email) {
     alert("please enter email and name !");
+  } else if (!name) {
+    alert("please enter name !");
+  } else if (!email) {
+    alert("please  enter email");
   }
-    else if(!name){
-      alert("please enter name !");
-    }
-else if (!email){
-alert ("please  enter email");
-}
-  
-
-  
+  ("");
 
   // // store the data in localStorage or handle it further
   localStorage.setItem("userName", name);
@@ -75,6 +71,8 @@ alert ("please  enter email");
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
 });
+
+// function to start timer when quiz starts
 function startTimer() {
   let timerInterval = setInterval(function () {
     timeLeft--;
@@ -82,6 +80,8 @@ function startTimer() {
     if (timeLeft === 0) {
       clearInterval(timerInterval);
       showTimeUpModal(); // Show the modal when time runs out
+    } else if (currentQuestionIndex === quizData.length) {
+      clearInterval(timerInterval);
     }
   }, 1000);
 }
@@ -169,14 +169,12 @@ function nextQuestion() {
 }
 console.log(quizData);
 
-
 // // Function to render the current question when the start quiz button is clicked
 // //the loadQuestion function dynamically generates
 // //the HTML for each question and its corresponding choices.
 // //map() fn is used to loop over the choices array
 // //and create radio buttons for each choice.
 // // Modify loadQuiz to take an index to load specific question
-
 
 nextQuestionBtn.addEventListener("click", nextQuestion);
 // Function to handle end of the quiz

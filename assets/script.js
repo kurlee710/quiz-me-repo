@@ -101,6 +101,7 @@ function showTimeUpModal() {
   const timeUpModal = new bootstrap.Modal(timeUpModalEl); // Initialize the Bootstrap modal
   timeUpModal.show(); // Show the modal
 }
+
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
 //the loadQuestion function dynamically generates
@@ -148,6 +149,8 @@ startBtn.addEventListener("click", function () {
   startTimer();
   // loads the first question
   loadQuiz(quizData[currentQuestionIndex]);
+  // display question when start-quiz button is hit
+  document.getElementById("quiz-container").style.display = "block";
   // display next question button
   document.getElementById("next-question").style.display = "block";
 });

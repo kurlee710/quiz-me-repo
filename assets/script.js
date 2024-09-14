@@ -5,6 +5,7 @@ const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
 const scoreBoardEl = document.getElementById("score-board");
 const timerEl = document.querySelector(".timer");
+const answer =document.getElementById('answer');
 
 // DATA -------------------------------------------------------------------
 let timeLeft = 30;
@@ -99,7 +100,7 @@ let questionData = quizData[currentQuestionIndex];
 // Modify loadQuiz to take an index to load specific question
 function loadQuiz(questionData) {
   // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = " ";
+  //feedbackEl.innerHTML = " ";
   // Get the current question - created a local variable instead of a global variable.
 
   quizContainer.innerHTML = `

@@ -120,7 +120,7 @@ function loadQuiz(questionData) {
 // function that stores user answers
 function storeUserAnswer() {
   let userAnswer = " ";
-  let choices = document.getElementsByName("answer");
+  let choices = document.getElementById("answer");
   for (let i = 0; i < choices.length; i++) {
     if (choices[i].checked) {
       userAnswer = choices[i].value;
@@ -136,6 +136,8 @@ startBtn.addEventListener("click", function () {
   startTimer();
   // loads the first question
   loadQuiz(quizData[currentQuestionIndex]);
+  // display next question button
+  document.getElementById("next-question").style.display = "block";
 });
 
 // // console log user answer on clicking submit button

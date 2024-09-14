@@ -157,7 +157,7 @@ const nextQuestionBtn = document.getElementById("next-question");
 function nextQuestion() {
   const userAnswer = storeUserAnswer();
   if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
-    feedbackEl.innerHTML = "Correcrt";
+    feedbackEl.innerHTML = "Correct";
     feedbackEl.style.color = "green";
     userScore++;
   } else {

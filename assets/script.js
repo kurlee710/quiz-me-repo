@@ -119,16 +119,18 @@ function loadQuiz(questionData) {
 
 // function that stores user answers
 function storeUserAnswer() {
-  let userAnswer = " ";
-  let choices = document.getElementsByName("answer");
-  for (let i = 0; i < choices.length; i++) {
-    if (choices[i].checked) {
-      userAnswer = choices[i].value;
+  let userAnswer = "";
+  const choices = document.querySelectorAll('input[name="answer"]');
+
+  // Loop through choices to find the checked one
+  for (let choice of choices) {
+    if (choice.checked) {
+      userAnswer = choice.value;
+      break;
     }
   }
   return userAnswer;
 }
-
 // function to startQuiz
 startBtn.addEventListener("click", function () {
   //   console.log("start quiz button clicked");
@@ -136,6 +138,8 @@ startBtn.addEventListener("click", function () {
   startTimer();
   // loads the first question
   loadQuiz(quizData[currentQuestionIndex]);
+  // display next question button
+  document.getElementById("next-question").style.display = "block";
 });
 
 // // console log user answer on clicking submit button
@@ -153,10 +157,10 @@ const nextQuestionBtn = document.getElementById("next-question");
 function nextQuestion() {
   const userAnswer = storeUserAnswer();
   if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
-    answer.innerHTML = " right";
+    feedbackEl.innerHTML = "Correcrt";
     userScore++;
   } else {
-    answer.innerHTML = "wrong";
+    feedbackEl.innerHTML = "Incorrect";
   }
 
   currentQuestionIndex++;
@@ -184,6 +188,7 @@ function endQuiz() {
     <p>Your final score is: ${userScore}</p>
   `;
   // Hide Next Question button
+  nextQuestionBtn.style.display = "none";
   //nextQuestionBtn.style.display = "none";
   scoreBoardEl.textContent = `Final Score: ${userScore}`;
 }

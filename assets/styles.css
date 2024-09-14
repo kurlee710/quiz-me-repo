@@ -90,4 +90,9 @@ div.form-check.form-switch {
 }
 
 #next-question {
+  display: none;
+}
+
+#quiz-container {
+  display: none;
 }

@@ -71,7 +71,7 @@ div.form-check.form-switch {
 
 #feedback {
   border: 1px solid black;
-  width: 47%;
+  width: 20%;
   display: flex;
   justify-content: left;
   border-width: 1px;
@@ -81,7 +81,7 @@ div.form-check.form-switch {
 
 #score-board {
   border: 1px solid black;
-  width: 47%;
+  width: 10%;
   display: flex;
   justify-content: left;
   border-width: 1px;

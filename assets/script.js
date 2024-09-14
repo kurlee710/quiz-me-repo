@@ -50,11 +50,18 @@ form.addEventListener("submit", function (event) {
   // Get the values from the form inputs
   const name = event.target[0].value;
   const email = event.target[1].value;
-  if (!name || !email) {
-    alert("please enter email !");
-
-    return;
+  if (!name && !email) {
+    alert("please enter email and name !");
   }
+    else if(!name){
+      alert("please enter name !");
+    }
+else if (!email){
+alert ("please  enter email");
+}
+  
+
+  
 
   // // store the data in localStorage or handle it further
   localStorage.setItem("userName", name);
@@ -111,7 +118,7 @@ function loadQuiz(questionData) {
 
 // function that stores user answers
 function storeUserAnswer() {
-  let userAnswer = "";
+  let userAnswer = " ";
   let choices = document.getElementsByName("answer");
   for (let i = 0; i < choices.length; i++) {
     if (choices[i].checked) {
@@ -161,7 +168,6 @@ function nextQuestion() {
 }
 console.log(quizData);
 
-nextQuestionBtn.addEventListener("click", nextQuestion);
 
 // // Function to render the current question when the start quiz button is clicked
 // //the loadQuestion function dynamically generates
@@ -169,24 +175,7 @@ nextQuestionBtn.addEventListener("click", nextQuestion);
 // //map() fn is used to loop over the choices array
 // //and create radio buttons for each choice.
 // // Modify loadQuiz to take an index to load specific question
-function loadQuiz(questionData) {
-  // Clear any previous feedback CONTENT
-  feedbackEl.innerHTML = "";
-  //   // Get the current question - created a local variable instead of a global variable. resolves the error of 'Cannot access 'quizData' before initialization'
-  // let questionData = quizData[currentQuestionIndex];
-  quizContainer.innerHTML = `
-    <h2>${questionData.question}</h2>
-     ${questionData.choices
-       .map(
-         (choice, index) => `
-      <div class="form-check">
-               <input type="radio" name="answer" id="choice${index}" value="${choice}" class="form-check-input">
-        <label for="choice${index}" class="form-check-label">${choice}</label>
-     </div>
-     `
-       )
-       .join("")}   `;
-}
+
 
 nextQuestionBtn.addEventListener("click", nextQuestion);
 // Function to handle end of the quiz
@@ -196,7 +185,7 @@ function endQuiz() {
     <p>Your final score is: ${userScore}</p>
   `;
   // Hide Next Question button
-  nextQuestionBtn.style.display = "none";
+  //nextQuestionBtn.style.display = "none";
   scoreBoardEl.textContent = `Final Score: ${userScore}`;
 }
 

@@ -158,9 +158,11 @@ function nextQuestion() {
   const userAnswer = storeUserAnswer();
   if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
     feedbackEl.innerHTML = "Correcrt";
+    feedbackEl.style.color = "green";
     userScore++;
   } else {
     feedbackEl.innerHTML = "Incorrect";
+    feedbackEl.style.color = "red";
   }
 
   currentQuestionIndex++;

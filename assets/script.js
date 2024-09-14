@@ -34,6 +34,16 @@ let quizData = [
     choices: ["div + p", ".div p", ".div.p"],
     correctAnswer: ".div p",
   },
+  {
+    question: "Where is the correct place to insert a JavaScript?",
+    choices: ["Head", "Body", "Both head and body can be used"],
+    correctAnswer: "Both head and body can be used",
+  },
+  {
+    question: "How do you round the number 7.25, to the nearest integer?",
+    choices: ["Math.round(7.25)", "Math.rnd(7.25)", "round(7.25)"],
+    correctAnswer: "Math.round(7.25)",
+  },
 ];
 
 // FUNCTIONS -----------------------------------------------
@@ -157,7 +167,7 @@ const nextQuestionBtn = document.getElementById("next-question");
 function nextQuestion() {
   const userAnswer = storeUserAnswer();
   if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
-    feedbackEl.innerHTML = "Correcrt";
+    feedbackEl.innerHTML = "Correct";
     feedbackEl.style.color = "green";
     userScore++;
   } else {

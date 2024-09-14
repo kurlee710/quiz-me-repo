@@ -168,11 +168,11 @@ function nextQuestion() {
   const userAnswer = storeUserAnswer();
   if (userAnswer === quizData[currentQuestionIndex].correctAnswer) {
     feedbackEl.innerHTML = "Correct";
-    feedbackEl.style.color = "green";
+    feedbackEl.style.color = "rgb(130 231 63)";
     userScore++;
   } else {
     feedbackEl.innerHTML = "Incorrect";
-    feedbackEl.style.color = "red";
+    feedbackEl.style.color = "#a20b0b";
   }
 
   currentQuestionIndex++;

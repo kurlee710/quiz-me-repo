@@ -119,16 +119,18 @@ function loadQuiz(questionData) {
 
 // function that stores user answers
 function storeUserAnswer() {
-  let userAnswer = " ";
-  let choices = document.getElementById("answer");
-  for (let i = 0; i < choices.length; i++) {
-    if (choices[i].checked) {
-      userAnswer = choices[i].value;
+  let userAnswer = "";
+  const choices = document.querySelectorAll('input[name="answer"]');
+
+  // Loop through choices to find the checked one
+  for (let choice of choices) {
+    if (choice.checked) {
+      userAnswer = choice.value;
+      break;
     }
   }
   return userAnswer;
 }
-
 // function to startQuiz
 startBtn.addEventListener("click", function () {
   //   console.log("start quiz button clicked");

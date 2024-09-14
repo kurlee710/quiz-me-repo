@@ -101,6 +101,7 @@ function showTimeUpModal() {
   const timeUpModal = new bootstrap.Modal(timeUpModalEl); // Initialize the Bootstrap modal
   timeUpModal.show(); // Show the modal
 }
+
 let questionData = quizData[currentQuestionIndex];
 // Function to render the current question when the start quiz button is clicked
 //the loadQuestion function dynamically generates

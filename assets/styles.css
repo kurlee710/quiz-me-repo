@@ -87,5 +87,13 @@ div.form-check.form-switch {
   margin: 0 auto;
 }
 
+[data-bs-theme="dark"] #feedback {
+  background-color: #222;
+}
+
+[data-bs-theme="dark"] #score-board {
+  background-color: #222;
+}
+
 #next-question {
 }

@@ -98,6 +98,10 @@ div.form-check.form-switch {
   background-color: #222;
 }
 
+[data-bs-theme="dark"] div.card.footer {
+  background-color: #222;
+}
+
 #next-question {
   display: none;
 }

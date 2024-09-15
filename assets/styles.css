@@ -70,23 +70,32 @@ div.form-check.form-switch {
 }
 
 #feedback {
-  border: 1px solid black;
-  width: 47%;
+  width: 10%;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   border-width: 1px;
   margin: 0 auto;
-  background: cadetblue;
+  background-color: #e49191;
+  border-radius: 20px;
 }
 
 #score-board {
   border: 1px solid black;
-  width: 47%;
+  width: 10%;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   border-width: 1px;
   margin: 0 auto;
-  background: cadetblue;
+  background-color: #e49191;
+  border-radius: 20px;
+}
+
+[data-bs-theme="dark"] #feedback {
+  background-color: #222;
+}
+
+[data-bs-theme="dark"] #score-board {
+  background-color: #222;
 }
 
 #next-question {

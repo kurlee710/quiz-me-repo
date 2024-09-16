@@ -35,12 +35,14 @@ It features a clean interface, a time-bound quiz, and allows users to track thei
 
 - **Responsive Design**
   The app adjusts to different screen sizes, ensuring usability on both mobile and desktop devices.
+  ![Device Responsiveness](./images/DeviceResponsive.png)
 
 **Pages & Navigation**
 
 1. Home: The landing page that welcomes users to the app.
 
 2. Results: Users can view their previous quiz results.
+   ![Final Score](./images/finalScore.png)
 
 3. Help: Provides guidance and instructions on how to use the app.
 

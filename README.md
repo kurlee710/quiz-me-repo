@@ -19,6 +19,7 @@ It features a clean interface, a time-bound quiz, and allows users to track thei
 - **Quiz Flow**
 
 1. Timer: A countdown timer is displayed once the quiz starts. When the timer hits zero, a modal appears informing the user that time is up.
+   ![Timer Modal](./images/TimerModal.png)
 2. Start Quiz: Clicking the “Start Quiz” button triggers the timer and loads the first question.
 3. Load Question: Each question along with its choices is dynamically generated using the loadQuiz() function.
 4. Next Question: A “Next Question” button allows users to proceed to the next question, checking if their answer was correct and updating the score.
@@ -29,6 +30,8 @@ It features a clean interface, a time-bound quiz, and allows users to track thei
 
 - **Theme Switch**
   Users can toggle between light and dark themes using a switch, with the preference stored in localStorage to persist the theme across sessions.
+  ![Light Theme](./images/lightMode.png)
+  ![Dark Mode](./images/darkMode.png)
 
 - **Responsive Design**
   The app adjusts to different screen sizes, ensuring usability on both mobile and desktop devices.

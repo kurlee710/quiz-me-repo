@@ -14,6 +14,22 @@
 <div class = "header"></div>
 <h1>WELCOME TO QUIZ ME APP </h1>
 
+<div class="modal" id="timeUpModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Time's up!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Try again?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <nav>
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -52,11 +68,9 @@
       </div>
     
     <!-- //display right or wrong dynamically from js file -->
-        <div id="feedback" class="text-center mt-3">Answer : </div> <!-- Display Correct/Incorrect message -->
+        <div id="feedback" id ="answer" class="text-center mt-3"><span></span> </div> <!-- Display Correct/Incorrect message -->
    <!-- //score will show dynamically from js  -->
-
         <div id="score-board" class="text-center mt-3">Score :</div> <!-- Scoreboard -->
-
         <button id="next-question" class="btn btn-primary btn-sm">Next Question</button>
         <!-- <button type ="next" class ="next-btn">Next question</button> -->
     </div>
@@ -76,6 +90,7 @@
             />
           </div>   
     </div>
+    
     
 </footer>
 <script src="./assets/script.js"></script>

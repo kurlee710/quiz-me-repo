@@ -5,11 +5,17 @@
 footer {
   text-align: center;
   padding: 5px;
+  margin-top: 40px;
 }
 
 header h1 {
   text-align: center;
   padding: 14px;
+}
+
+div h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 div.card-header {
@@ -64,25 +70,42 @@ div.form-check.form-switch {
 }
 
 #feedback {
-  border: 1px solid black;
-  width: 47%;
+  max-width: 75px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   border-width: 1px;
   margin: 0 auto;
-  background: cadetblue;
+  background-color: #e49191;
+  border-radius: 20px;
 }
 
 #score-board {
   border: 1px solid black;
-  width: 47%;
+  max-width: 75px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   border-width: 1px;
   margin: 0 auto;
-  background: cadetblue;
+  background-color: #e49191;
+  border-radius: 20px;
+}
+
+[data-bs-theme="dark"] #feedback {
+  background-color: #222;
+}
+
+[data-bs-theme="dark"] #score-board {
+  background-color: #222;
+}
+
+[data-bs-theme="dark"] div.card.footer {
+  background-color: #222;
 }
 
 #next-question {
+  display: none;
+}
+
+#quiz-container {
   display: none;
 }

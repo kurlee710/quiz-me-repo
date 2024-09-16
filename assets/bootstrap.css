@@ -488,10 +488,11 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0;
+  margin: 2px;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  width: 300px;
 }
 
 button,
@@ -5788,6 +5789,7 @@ fieldset:disabled .btn {
 .modal-title {
   margin-bottom: 0;
   line-height: var(--bs-modal-title-line-height);
+  text-align: center;
 }
 
 .modal-body {

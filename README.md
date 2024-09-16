@@ -4,6 +4,7 @@
 The Quiz Me App is a user-friendly, interactive quiz application designed to test users' knowledge on various topics.
 It features a clean interface, a time-bound quiz, and allows users to track their performance.
 
+
 ## Features
 - **User Registration** 
 Users enter their name and email before starting the quiz.

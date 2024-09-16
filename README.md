@@ -53,6 +53,9 @@ HTML, CSS,Bootstrap 5 & JavaScript: Core technologies used for building the appâ
 **Local Storage**
 Used to persist user data like quiz scores and theme preferences.
 
+**HERE IS THE LINK TO THE QUIZ-ME APP DEPLOYEMD APPLCATION**
+https://kurlee710.github.io/quiz-me-repo/
+
 
 
 
